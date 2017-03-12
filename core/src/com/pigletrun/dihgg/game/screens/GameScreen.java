@@ -31,7 +31,7 @@ public class GameScreen implements Screen {
 
 	private void create() {
 		batch = new SpriteBatch();
-		textureAtlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/pack.atlas"));
+		textureAtlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
 		AtlasRegion region = textureAtlas.findRegion("p1");
 
 		sprite = new Sprite(region);
@@ -48,7 +48,7 @@ public class GameScreen implements Screen {
 				   sprite.setRegion(textureAtlas.findRegion("p"+ currentFrame));
 			   }
 		   }
-		,0,1/30.0f);
+		,0,5/30.0f);
 	}
 
 	@Override

@@ -1,47 +1,47 @@
 
-pack.png
+Pig.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+p6
+  rotate: false
+  xy: 1, 213
+  size: 58, 42
+  orig: 60, 60
+  offset: 0, 10
+  index: -1
 p1
   rotate: false
-  xy: 1, 1
-  size: 60, 60
+  xy: 1, 169
+  size: 56, 42
   orig: 60, 60
-  offset: 0, 0
+  offset: 2, 8
   index: -1
 p2
   rotate: false
-  xy: 63, 1
-  size: 60, 60
+  xy: 1, 127
+  size: 58, 40
   orig: 60, 60
-  offset: 0, 0
-  index: -1
-p3
-  rotate: false
-  xy: 125, 1
-  size: 60, 60
-  orig: 60, 60
-  offset: 0, 0
+  offset: 0, 10
   index: -1
 p4
   rotate: false
-  xy: 187, 1
-  size: 60, 60
+  xy: 1, 85
+  size: 58, 40
   orig: 60, 60
-  offset: 0, 0
+  offset: 0, 11
+  index: -1
+p3
+  rotate: false
+  xy: 1, 43
+  size: 56, 40
+  orig: 60, 60
+  offset: 2, 10
   index: -1
 p5
   rotate: false
-  xy: 249, 1
-  size: 60, 60
+  xy: 1, 1
+  size: 56, 40
   orig: 60, 60
-  offset: 0, 0
-  index: -1
-p6
-  rotate: false
-  xy: 311, 1
-  size: 60, 60
-  orig: 60, 60
-  offset: 0, 0
+  offset: 2, 12
   index: -1
