@@ -13,7 +13,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Timer;
 import com.pigletrun.dihgg.game.components.characters.Pig;
-import com.sun.xml.internal.ws.dump.LoggingDumpTube;
 
 /**
  * Created by Diego on 11/03/2017.
@@ -70,7 +69,7 @@ public class GameScreen implements Screen,InputProcessor {
 		//Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.draw();
-		pig.moveY(1);
+		//pig.moveY(+1);
 		/*batch.begin();
 		sprite.draw(batch);
 		batch.end();*/
@@ -120,7 +119,7 @@ public class GameScreen implements Screen,InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-
+		pig.setPosition(screenX, screenY);
 		return false;
 	}
 
