@@ -1,28 +1,30 @@
 package com.pigletrun.dihgg.game.components.characters;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.utils.Timer;
-import com.sun.org.apache.xpath.internal.operations.String;
-
-/**
- * Created by Diego on 12/03/2017.
- */
 
 public class Pig extends Actor {
-	private TextureAtlas atlas;
-	private Animation animation;
-	private Sprite sprite;
+	private TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
+	private Sprite sprite = new Sprite(atlas.findRegion("p1"));
 	private int frame = 1;
 
 	public Pig() {
-		atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
-		sprite = new Sprite(atlas.findRegion("p1"));
+		this.setBounds(sprite.getX(),sprite.getY(),sprite.getWidth(),sprite.getHeight());
+		this.setTouchable(Touchable.enabled);
+
+		/*addListener(new InputListener(){
+			@Override
+			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+				Pig.this.setPosition(x,y);
+			}
+		});*/
+
+
 		Timer.schedule(new Timer.Task(){
 			   @Override
 			   public void run() {
@@ -40,7 +42,19 @@ public class Pig extends Actor {
 		sprite.draw(batch);
 	}
 
-	public void moveY(int value) {
-		sprite.setPosition(sprite.getX(), sprite.getY() + value);
+	@Override
+	public void act(float delta) {
+		super.act(delta);
+	}
+	@Override
+	protected void positionChanged() {
+		sprite.setPosition(getX(),getY());
+		super.positionChanged();
+	}
+
+	@Override
+	public void setPosition(float x, float y) {
+		sprite.setPosition(x,y);
+		super.setPosition(x, y);
 	}
 }
