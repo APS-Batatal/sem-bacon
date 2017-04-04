@@ -10,12 +10,13 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.pigletrun.dihgg.game.components.characters.Pig;
 
 class GameScreen implements Screen {
-	//Game g; // Required
+	private Game game; // Required
 	// VARIABLES
 	private Pig pig;
-
 	private Stage stage;
-	GameScreen(Game g) {
+
+	GameScreen(Game game) {
+		this.game = game;
 		this.create();
 	}
 

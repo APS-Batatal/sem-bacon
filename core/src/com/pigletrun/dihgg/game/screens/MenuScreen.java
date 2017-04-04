@@ -1,6 +1,5 @@
 package com.pigletrun.dihgg.game.screens;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -8,7 +7,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -17,22 +15,19 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
-/**
- * Created by Diego on 11/03/2017.
- */
 
 public class MenuScreen implements Screen {
-	Skin skin;
-	Stage stage;
-	SpriteBatch batch;
-	Game g;
+	private Skin skin;
+	private Stage stage;
+	private SpriteBatch batch;
+	private Game g;
 
 	public MenuScreen(Game g) {
 		this.create();
 		this.g = g;
 	}
 
-	public void create(){
+	private void create() {
 		batch = new SpriteBatch();
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
@@ -61,7 +56,6 @@ public class MenuScreen implements Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				textButton.setText("Starting...");
-				g.setScreen(new GameScreen(g));
 			}
 		});
 
