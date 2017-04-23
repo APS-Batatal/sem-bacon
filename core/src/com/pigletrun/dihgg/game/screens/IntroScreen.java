@@ -17,7 +17,7 @@ public class IntroScreen implements Screen {
 	private SpriteBatch batch; // the sprite batch
 
 	private Stage stage; // stage class
-	private String files[] = {"guaxinim.png", "unicluster.png", "unip.png"}; // filename of logos
+	private String files[] = {"unicluster.png", "unip.png", "guaxinim.png"}; // filename of logos
 	private Logo logo; // logo class
 
 	public IntroScreen(final Game game) {
