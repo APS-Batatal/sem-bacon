@@ -15,10 +15,10 @@ public class IntroScreen implements Screen {
 	// VARIABLES
 	private Game game; // the game controller variable
 	private SpriteBatch batch; // the sprite batch
-
 	private Stage stage; // stage class
-	private String files[] = {"unicluster.png", "unip.png", "guaxinim.png"}; // filename of logos
+	private String files[] = {"unicluster.png", "unip.png", "guaxinim.png", "game.png"}; // filename of logos
 	private Logo logo; // logo class
+	private float delay = 2f;
 
 	public IntroScreen(final Game game) {
 		this.game = game; // attr the logo
@@ -30,7 +30,7 @@ public class IntroScreen implements Screen {
 		// Do actions in a sequence
 		logo.addAction(Actions.sequence(
 				// delay
-				Actions.delay(5f),
+				Actions.delay(delay),
 				// change the logo
 				new Action() {
 					@Override
@@ -40,7 +40,7 @@ public class IntroScreen implements Screen {
 					}
 				},
 				// delay
-				Actions.delay(5f),
+				Actions.delay(delay),
 				// change the logo
 				new Action() {
 					@Override
@@ -50,13 +50,24 @@ public class IntroScreen implements Screen {
 					}
 				},
 				// delay
-				Actions.delay(5f),
+				Actions.delay(delay),
+				// change the logo
+				new Action() {
+					@Override
+					public boolean act(float delta) {
+						logo.setSprite(files[3]);
+						return true;
+					}
+				},
+				// delay
+				Actions.delay(delay),
 				// GOTO next screen
 				new Action() {
 					@Override
 					public boolean act(float delta) {
-						game.setScreen(new GameScreen(game));
 						return true;
+						/*game.setScreen(new GameScreen(game));
+						return true;*/
 					}
 				}
 		));
@@ -72,7 +83,6 @@ public class IntroScreen implements Screen {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act(Gdx.graphics.getDeltaTime());
 		stage.draw();
-
 	}
 
 	@Override
