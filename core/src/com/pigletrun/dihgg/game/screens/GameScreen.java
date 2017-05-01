@@ -2,30 +2,22 @@ package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.pigletrun.dihgg.game.components.BaseScreen;
 import com.pigletrun.dihgg.game.components.characters.Pig;
 
-class GameScreen implements Screen {
-	private Game game; // Required
-	// VARIABLES
-	private Pig pig;
-	private Stage stage;
+class GameScreen extends BaseScreen {
+	// VARIÁVEIS
+	private Pig pig; // Porco
 
 	GameScreen(Game game) {
-		this.game = game;
-		this.create();
-	}
+		super(game); // chamar construtor pai
 
-	private void create() {
-		stage = new Stage(); // create new stage
-		pig = new Pig(); // create new pig actor
-		Gdx.input.setInputProcessor(stage); // set the input processor to stage
+		pig = new Pig(); // criar novo ator do porco
+		Gdx.input.setInputProcessor(stage); // Settar o input processor ao stage
 
-		stage.addActor(pig); // add the pig to stage
+		stage.addActor(pig); // Adicionar o porco ao cenário
 
 		// LISTENERS
 		stage.addListener(new InputListener(){
@@ -35,32 +27,5 @@ class GameScreen implements Screen {
 				return true;
 			}
 		});
-	}
-
-	@Override
-	public void show() {}
-
-	@Override
-	public void render(float delta) {
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		stage.act(Gdx.graphics.getDeltaTime());
-		stage.draw();
-	}
-
-	@Override
-	public void resize(int width, int height) {}
-
-	@Override
-	public void pause() {}
-
-	@Override
-	public void resume() {}
-
-	@Override
-	public void hide() {}
-
-	@Override
-	public void dispose() {
-		stage.dispose();
 	}
 }
