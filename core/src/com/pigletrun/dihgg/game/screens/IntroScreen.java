@@ -10,67 +10,52 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.pigletrun.dihgg.game.components.Logo;
 
+import java.util.ArrayList;
+
 
 public class IntroScreen implements Screen {
-	// VARIABLES
-	private Game game; // the game controller variable
-	private SpriteBatch batch; // the sprite batch
-	private Stage stage; // stage class
-	private String files[] = {"unicluster.png", "unip.png", "guaxinim.png", "game.png"}; // filename of logos
-	private Logo logo; // logo class
-	private float delay = 2f;
+	// VARIÁVEIS
+	private Game game; // a variável game (importante para o sistema)
+	private SpriteBatch batch; // o 'batch' de desenho
+	private Stage stage; // a variável de 'stage'
+	private String files[] = {"unicluster.png", "unip.png", "guaxinim.png", "game.png"}; // nomes dos arquivos de logo
+	private Logo logo; // Classe de logo
+	private float delay = 2f; // tempo de delay entre os logos
 
 	public IntroScreen(final Game game) {
-		this.game = game; // attr the logo
-		batch = new SpriteBatch(); // init the sprite batch
-		stage = new Stage(); // init the stage
-		logo = new Logo(files[0]); // init the logo (with the first logo)
-		stage.addActor(logo); // add actor to stage
+		this.game = game; // Atribuir a variavel de game
+		batch = new SpriteBatch(); // iniciar o 'spritebatch'
+		stage = new Stage(); // iniciar o 'stage'
+		logo = new Logo(files[0]); // iniciar o logo 'com o primeiro logo'
+		stage.addActor(logo); // Adicionar o ator 'logo' ao stage
 
-		// Do actions in a sequence
-		logo.addAction(Actions.sequence(
-				// delay
-				Actions.delay(delay),
-				// change the logo
-				new Action() {
-					@Override
-					public boolean act(float delta) {
-						logo.setSprite(files[1]);
-						return true;
-					}
-				},
-				// delay
-				Actions.delay(delay),
-				// change the logo
-				new Action() {
-					@Override
-					public boolean act(float delta) {
-						logo.setSprite(files[2]);
-						return true;
-					}
-				},
-				// delay
-				Actions.delay(delay),
-				// change the logo
-				new Action() {
-					@Override
-					public boolean act(float delta) {
-						logo.setSprite(files[3]);
-						return true;
-					}
-				},
-				// delay
-				Actions.delay(delay),
-				// GOTO next screen
-				new Action() {
-					@Override
-					public boolean act(float delta) {
-						return true;
-						/*game.setScreen(new GameScreen(game));
-						return true;*/
-					}
+		// Criar sequencia de ações
+		ArrayList<Action> actions = new ArrayList<Action>();
+		for (int i = 0; i < files.length; i++) {
+			final int k = i;
+			actions.add(new Action() {
+				@Override
+				public boolean act(float delta) {
+					logo.setSprite(files[k]);
+					return true;
 				}
-		));
+			});
+			actions.add(Actions.delay(delay));
+		}
+		// Adicionar a ação final
+		actions.add(new Action() {
+			@Override
+			public boolean act(float delta) {
+				game.setScreen(new GameScreen(game));
+				return true;
+			}
+		});
+		// transformar em um array primitivo de actions
+		Action[] _actions = new Action[actions.size()];
+		for (int i = 0; i < actions.size(); i++) {
+			_actions[i] = actions.get(i);
+		}
+		logo.addAction(Actions.sequence(_actions)); // adicionar a sequência de ações ao logo
 	}
 
 	@Override
