@@ -1,7 +1,6 @@
 package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.pigletrun.dihgg.game.components.BaseScreen;
@@ -15,7 +14,6 @@ class GameScreen extends BaseScreen {
 		super(game); // chamar construtor pai
 
 		pig = new Pig(); // criar novo ator do porco
-		Gdx.input.setInputProcessor(stage); // Settar o input processor ao stage
 
 		stage.addActor(pig); // Adicionar o porco ao cenário
 

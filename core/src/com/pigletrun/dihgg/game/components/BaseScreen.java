@@ -17,6 +17,7 @@ public class BaseScreen implements Screen {
 		this.game = game; // Atribuir a variavel de game
 		batch = new SpriteBatch(); // iniciar o 'spritebatch'
 		stage = new Stage(); // iniciar o 'stage'
+		Gdx.input.setInputProcessor(stage); // Settar o input processor ao stage
 	}
 
 
