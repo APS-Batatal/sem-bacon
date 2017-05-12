@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class BaseScreen implements Screen {
 	// Variáveis
+
 	protected Game game; // a variável game (importante para o sistema)
 	protected Stage stage; // a variável de 'stage'
 	private SpriteBatch batch; // o 'batch' de desenho
