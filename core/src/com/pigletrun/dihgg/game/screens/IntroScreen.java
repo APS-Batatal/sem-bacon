@@ -3,8 +3,8 @@ package com.pigletrun.dihgg.game.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.scenes.scene2d.Action;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
-import com.pigletrun.dihgg.game.components.BaseScreen;
 import com.pigletrun.dihgg.game.components.Logo;
+import com.pigletrun.dihgg.game.core.BaseScreen;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.pigletrun.dihgg.game.components;
+package com.pigletrun.dihgg.game.core;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -23,7 +23,6 @@ public class BaseScreen implements Screen {
 
 	@Override
 	public void show() {
-
 	}
 
 	@Override

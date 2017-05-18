@@ -5,8 +5,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.pigletrun.dihgg.game.components.BaseScreen;
 import com.pigletrun.dihgg.game.components.ui.Button;
+import com.pigletrun.dihgg.game.core.BaseScreen;
 
 import java.util.ArrayList;
 
@@ -42,7 +42,15 @@ class MenuScreen extends BaseScreen {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				// Trocar para a tela do jogo
 				game.setScreen(new GameScreen(game));
-				
+				return true;
+			}
+		});
+		// Ao clicar no botão de Tutorial
+		tutorialBtn.addListener(new InputListener() {
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				// Trocar para a tela do jogo
+				game.setScreen(new TutorialScreen(game));
 				return true;
 			}
 		});

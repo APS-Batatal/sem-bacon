@@ -3,8 +3,8 @@ package com.pigletrun.dihgg.game.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.pigletrun.dihgg.game.components.BaseScreen;
 import com.pigletrun.dihgg.game.components.characters.Pig;
+import com.pigletrun.dihgg.game.core.BaseScreen;
 
 class GameScreen extends BaseScreen {
 	// VARIÁVEIS
