@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.utils.Timer;
 
 public class Pig extends Actor {
@@ -15,7 +14,7 @@ public class Pig extends Actor {
 
 	public Pig() {
 		this.setBounds(sprite.getX(),sprite.getY(),sprite.getWidth(),sprite.getHeight());
-		this.setTouchable(Touchable.enabled);
+		//this.setTouchable(Touchable.enabled);
 
 		/*addListener(new InputListener(){
 			@Override
@@ -43,6 +42,12 @@ public class Pig extends Actor {
 	}
 
 	@Override
+	public void setPosition(float x, float y) {
+		sprite.setPosition(x, y);
+		super.setPosition(x, y);
+	}
+
+	/*@Override
 	public void act(float delta) {
 		super.act(delta);
 	}
@@ -50,11 +55,5 @@ public class Pig extends Actor {
 	protected void positionChanged() {
 		sprite.setPosition(getX(),getY());
 		super.positionChanged();
-	}
-
-	@Override
-	public void setPosition(float x, float y) {
-		sprite.setPosition(x,y);
-		super.setPosition(x, y);
-	}
+	}*/
 }
