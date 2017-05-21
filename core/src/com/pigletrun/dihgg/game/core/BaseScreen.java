@@ -21,11 +21,6 @@ public class BaseScreen implements Screen {
 		Gdx.input.setInputProcessor(stage); // Settar o input processor ao stage
 	}
 
-
-	@Override
-	public void show() {
-	}
-
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1, 1, 1, 1);
@@ -35,28 +30,28 @@ public class BaseScreen implements Screen {
 	}
 
 	@Override
-	public void resize(int width, int height) {
-
-	}
-
-	@Override
-	public void pause() {
-
-	}
-
-	@Override
-	public void resume() {
-
-	}
-
-	@Override
-	public void hide() {
-
-	}
-
-	@Override
 	public void dispose() {
 		batch.dispose();
 		stage.dispose();
 	}
+
+    @Override
+    public void show() {
+    }
+
+    @Override
+    public void resize(int width, int height) {
+    }
+
+    @Override
+    public void pause() {
+    }
+
+    @Override
+    public void resume() {
+    }
+
+    @Override
+    public void hide() {
+    }
 }

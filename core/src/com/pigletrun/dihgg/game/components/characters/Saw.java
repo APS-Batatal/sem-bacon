@@ -18,7 +18,7 @@ public class Saw extends Actor {
     private Vector2 posSaw1, posSaw2;
     private Random rand;
 
-    public Saw(float x) {
+    public Saw(int x) {
         rand = new Random();
         posSaw1 = new Vector2(x, rand.nextInt(FLUCTUATION) + SAW_GAP + LOWEST_OPENING);
         posSaw2 = new Vector2(x, posSaw1.y - SAW_GAP - saw2.getHeight());
