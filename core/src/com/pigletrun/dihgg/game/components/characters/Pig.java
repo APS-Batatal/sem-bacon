@@ -9,24 +9,19 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Timer;
 
 public class Pig extends Actor {
+
 	private TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
 	private Sprite sprite = new Sprite(atlas.findRegion("p1"));
 	private OrthographicCamera cam; // Variável para efeito de zoom
 	private int frame = 1;
 
 	public Pig() {
-		this.setBounds(sprite.getX(),sprite.getY(),sprite.getWidth(),sprite.getHeight());
+		sprite.setX(50);
+		sprite.setY(Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2);
+		//this.setBounds(sprite.getX(),sprite.getY(),sprite.getWidth(),sprite.getHeight());
+
 		cam = new OrthographicCamera();
-		cam.setToOrtho(false, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2); // Definine a câmera para projeção ortográfica
-		//this.setTouchable(Touchable.enabled);
-
-		/*addListener(new InputListener(){
-			@Override
-			public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
-				Pig.this.setPosition(x,y);
-			}
-		});*/
-
+		cam.setToOrtho(false, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2); // Seta a câmera para projeção ortográfica
 
 		Timer.schedule(new Timer.Task(){
 			   @Override
@@ -46,13 +41,15 @@ public class Pig extends Actor {
 		sprite.draw(batch);
 	}
 
-	@Override
-	public void setPosition(float x, float y) {
-		sprite.setPosition(x, y);
-		super.setPosition(x, y);
+	public void moveUp() {
+		if (sprite.getY() <= cam.viewportHeight - 8 - sprite.getHeight()) // Impede que objeto saia da tela
+			sprite.translateY(5);
 	}
 
-
+	public void moveDown() {
+		if (sprite.getY() >= 8)
+			sprite.translateY(-5);// Define a velocidade de transição
+	}
 
 	/*@Override
 	public void act(float delta) {
