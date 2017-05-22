@@ -11,6 +11,7 @@ import com.pigletrun.dihgg.game.core.GLOBAL;
 class GameScreen extends BaseScreen {
 	// VARIÁVEIS
 	private Pig pig; // Porco
+	private int pigX = 20; // a posição X do porco //TODO: adicionar lógica para o porco andar para frente
 	private Hud hud;
 
 	GameScreen(Game game) {
@@ -28,7 +29,7 @@ class GameScreen extends BaseScreen {
 		stage.addListener(new InputListener(){
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				pig.setPosition(x, y);
+				pig.move(pigX, y);
 				GLOBAL.ranking.addScore(10);
 				return true;
 			}
@@ -38,6 +39,7 @@ class GameScreen extends BaseScreen {
 	@Override
 	public void render(float delta) {
 		hud.update();
+		pig.update();
 		super.render(delta);
 	}
 }

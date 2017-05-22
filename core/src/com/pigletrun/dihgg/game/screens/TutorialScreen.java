@@ -1,6 +1,7 @@
 package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
@@ -19,7 +20,7 @@ class TutorialScreen extends BaseScreen {
 		Label label = new Label(String.valueOf(GLOBAL.ranking.getHiscore()), labelStyle);
 		label.setColor(Color.BLACK);
 
-		label.setPosition(20, 20);
+		label.setPosition(20, Gdx.graphics.getHeight() - 20);
 		stage.addActor(label);
 	}
 }

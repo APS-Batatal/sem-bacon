@@ -1,5 +1,6 @@
 package com.pigletrun.dihgg.game.components.ui;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -15,31 +16,37 @@ public class Hud {
 	private int score;
 	private int hiscore;
 	// Labels
-	private Label scoreLabel;
+	private Label scoreLabel, hiscoreLabel;
 
 
 	public Hud(Stage stage) {
 		//iniciar variáveis
-		this.score = GLOBAL.ranking.getScore();
-		this.hiscore = GLOBAL.ranking.getHiscore();
+		score = GLOBAL.ranking.getScore();
+		hiscore = GLOBAL.ranking.getHiscore();
 
 		// Criar estilo das labels
-		this.labelStyle = new LabelStyle(); // estilo das labels
-		this.labelStyle.font = new Font("press-start.ttf").get(); // gerar font customizada
-		this.labelStyle.fontColor = Color.BLACK; // pegar cor
+		labelStyle = new LabelStyle(); // estilo das labels
+		labelStyle.font = new Font("press-start.ttf").get(); // gerar font customizada
+		labelStyle.fontColor = Color.BLACK; // pegar cor
 
 		// criar label de score
-		this.scoreLabel = new Label(String.valueOf(this.score), this.labelStyle); // instanciar label de score
-		this.scoreLabel.setScale(2f); // mudar escala
+		scoreLabel = new Label("SCORE: \n\n" + String.valueOf(score), labelStyle); // Instanciar label de score
+		hiscoreLabel = new Label("HISCORE: \n\n" + String.valueOf(hiscore), labelStyle); // Instanciar label de score
 		// TODO: alterar
-		this.scoreLabel.setPosition(10, 10); // alterar posição
+		scoreLabel.setPosition(10, Gdx.graphics.getHeight() - 50); // alterar posição
+		hiscoreLabel.setPosition((scoreLabel.getX() + hiscoreLabel.getWidth() + 20), Gdx.graphics.getHeight() - 50); // alterar posição
 
-		stage.addActor(this.scoreLabel); // adicionar ao stage
+		stage.addActor(scoreLabel); // adicionar ao stage
+		stage.addActor(hiscoreLabel); // adicionar ao stage
 	}
 
 	public void update() {
-		//atualizar valores
-		this.score = GLOBAL.ranking.getScore();
-		this.scoreLabel.setText(String.valueOf(this.score));
+		score = GLOBAL.ranking.getScore(); // Atualizar valor de score
+		scoreLabel.setText("SCORE: \n\n" + String.valueOf(score)); // Atualizar label
+
+		// se score for maior do que hiscore, remover hiscore
+		if ((score > hiscore) && hiscoreLabel.isVisible()) {
+			hiscoreLabel.setVisible(false);
+		}
 	}
 }
