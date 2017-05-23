@@ -12,27 +12,32 @@ public class Pig extends Actor {
 
 	private TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
 	private Sprite sprite = new Sprite(atlas.findRegion("p1"));
-	private OrthographicCamera cam; // Variável para efeito de zoom
 	private int frame = 1;
+	private float toX, toY; // variáveis para posicionar o porco
+	private float velocity = 3f; // velocidade de movimento do porco
+
+	private OrthographicCamera cam; // Variável para efeito de zoom
 
 	public Pig() {
-		sprite.setX(50);
-		sprite.setY(Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2);
-		//this.setBounds(sprite.getX(),sprite.getY(),sprite.getWidth(),sprite.getHeight());
+		toX = 50;
+		toY = Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2;
+		sprite.setPosition(toX, toY);
+		this.setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
 
+		// TODO: Não tem nada mais simples do que isso não?
 		cam = new OrthographicCamera();
 		cam.setToOrtho(false, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2); // Seta a câmera para projeção ortográfica
 
 		Timer.schedule(new Timer.Task(){
-			   @Override
-			   public void run() {
-				   frame++;
-				   if(frame > 6)
-					   frame = 1;
-				   sprite.setRegion(atlas.findRegion("p"+ frame));
-			   }
-		   }
-		,0,5/30.0f);
+						   @Override
+						   public void run() {
+							   frame++;
+							   if (frame > 6)
+								   frame = 1;
+							   sprite.setRegion(atlas.findRegion("p" + frame));
+						   }
+					   }
+				, 0, 5 / 30.0f);
 	}
 
 	@Override
@@ -41,23 +46,26 @@ public class Pig extends Actor {
 		sprite.draw(batch);
 	}
 
-	public void moveUp() {
-		if (sprite.getY() <= cam.viewportHeight - 8 - sprite.getHeight()) // Impede que objeto saia da tela
-			sprite.translateY(5);
+	public void move(float x, float y) {
+		toX = x;
+		if (y <= cam.viewportHeight - sprite.getHeight()) {
+			toY = y;
+		}
 	}
 
-	public void moveDown() {
-		if (sprite.getY() >= 8)
-			sprite.translateY(-5);// Define a velocidade de transição
-	}
+	public void update() {
+		// Atualizar a posição do porco
+		if (this.getX() < toX) {
+			this.setX(this.getX() + velocity);
+		} else if (this.getX() > toX) {
+			this.setX(this.getX() - velocity);
+		}
 
-	/*@Override
-	public void act(float delta) {
-		super.act(delta);
+		if (this.getY() < toY) {
+			this.setY(this.getY() + velocity);
+		} else if (this.getY() > toY) {
+			this.setY(this.getY() - velocity);
+		}
+		sprite.setPosition(this.getX(), this.getY());
 	}
-	@Override
-	protected void positionChanged() {
-		sprite.setPosition(getX(),getY());
-		super.positionChanged();
-	}*/
 }
