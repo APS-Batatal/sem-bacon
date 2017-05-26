@@ -46,7 +46,7 @@ public class Hud {
 
 	public void update() {
 		score = GLOBAL.ranking.getScore(); // Atualizar valor de score
-		scoreLabel.setText("SCORE: \n\n" + String.valueOf(score)); // Atualizar label
+		scoreLabel.setText("PONTOS: \n\n" + String.valueOf(score)); // Atualizar label
 
 		// se score for maior do que hiscore, remover hiscore
 		if ((score > hiscore) && hiscoreLabel.isVisible()) {
