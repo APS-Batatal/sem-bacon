@@ -43,7 +43,7 @@ public class Pig extends Actor {
 
 	public void move(float x, float y) {
 		toX = x;
-		if (y <= cam.viewportHeight - sprite.getHeight()) {
+		if (y <= cam.viewportHeight - 150 && y >= 100) {  
 			toY = y;
 		}
 	}
