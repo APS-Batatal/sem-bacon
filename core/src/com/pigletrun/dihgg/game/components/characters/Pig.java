@@ -1,12 +1,13 @@
 package com.pigletrun.dihgg.game.components.characters;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Timer;
+
+import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
 
 public class Pig extends Actor {
 
@@ -16,17 +17,11 @@ public class Pig extends Actor {
 	private float toX, toY; // variáveis para posicionar o porco
 	private float velocity = 3f; // velocidade de movimento do porco
 
-	private OrthographicCamera cam; // Variável para efeito de zoom
-
 	public Pig() {
 		toX = 50;
 		toY = Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2;
 		sprite.setPosition(toX, toY);
 		this.setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
-
-		// TODO: Não tem nada mais simples do que isso não?
-		cam = new OrthographicCamera();
-		cam.setToOrtho(false, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2); // Seta a câmera para projeção ortográfica
 
 		Timer.schedule(new Timer.Task(){
 						   @Override

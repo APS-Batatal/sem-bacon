@@ -31,10 +31,14 @@ public class Hud {
 
 		// criar label de score
 		scoreLabel = new Label("SCORE: \n\n" + String.valueOf(score), labelStyle); // Instanciar label de score
-		hiscoreLabel = new Label("HISCORE: \n\n" + String.valueOf(hiscore), labelStyle); // Instanciar label de score
+		hiscoreLabel = new Label("HIGHSCORE: \n\n" + String.valueOf(hiscore), labelStyle); // Instanciar label de score
+		scoreLabel.setFontScale(2f); // altera tamanho da fonte
+		hiscoreLabel.setFontScale(2f);
 		// TODO: alterar
-		scoreLabel.setPosition(10, Gdx.graphics.getHeight() - 50); // alterar posição
-		hiscoreLabel.setPosition((scoreLabel.getX() + hiscoreLabel.getWidth() + 20), Gdx.graphics.getHeight() - 50); // alterar posição
+		scoreLabel.setPosition(10, Gdx.graphics.getHeight() - 70); // alterar posição
+		hiscoreLabel.setPosition(10, scoreLabel.getY() - hiscoreLabel.getHeight() - 90); // alterar posição
+		//scoreLabel.setPosition(10, Gdx.graphics.getHeight() - 50); // alterar posição
+		//hiscoreLabel.setPosition((scoreLabel.getX() + hiscoreLabel.getWidth() + 20), Gdx.graphics.getHeight() - 50); // alterar posição
 
 		stage.addActor(scoreLabel); // adicionar ao stage
 		stage.addActor(hiscoreLabel); // adicionar ao stage
