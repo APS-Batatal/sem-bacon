@@ -18,17 +18,14 @@ class GameScreen extends BaseScreen {
 	// VARIÁVEIS
 	private Hud hud;
 	private Pig pig; // Porco
-	private Saw saw;
 	private Array<Saw> saws;
 
 	GameScreen(Game game) {
 		super(game); // chamar construtor pai
 
+		pig = new Pig(); // criar novo ator do porco
 		hud = new Hud(stage);
 		GLOBAL.ranking.setScore(0); // zerar o score
-
-		pig = new Pig(); // criar novo ator do porco
-		saws = new Array<Saw>(); // cria array de serras
 
 		stage.addActor(pig); // Adicionar o porco ao cenário
 
@@ -54,8 +51,7 @@ class GameScreen extends BaseScreen {
 
 	@Override
 	public void render(float delta) {
-		hud.update();
-		pig.update();
 		super.render(delta);
+		hud.update();
 	}
 }
