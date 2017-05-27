@@ -12,8 +12,8 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
 
 public class Saw extends Actor {
     private static final float FLUCTUATION = cam.viewportHeight - 400; // número para posicionamento randômico da serra
-    private static final int SAW_GAP = 100; // distância entre as serras
-    private static final float LOWEST_OPENING = cam.viewportHeight - 390; // distância mínima aceitável para impedir o não aparecimento da serra na tela
+    private static final int SAW_GAP = 100; // distância entre as serras superiores
+    private static final float LOWEST_OPENING = cam.viewportHeight - 390; // altura mínima aceitável para impedir o não aparecimento da serra na tela
 
     private Sprite saw1 = new Sprite(new Texture("images/Saw1.png"));
     private Sprite saw2 = new Sprite(new Texture("images/Saw1.png"));
@@ -39,5 +39,18 @@ public class Saw extends Actor {
         saw1.setX(saw1.getX() - 2f);
         saw2.setX(saw2.getX() - 2f);
         this.setPosition(saw1.getX(), saw1.getY());
+    }
+
+    public void reposition(float x) {
+        posSaw1.set(x, rand.nextInt(Math.round(FLUCTUATION)) + SAW_GAP + LOWEST_OPENING);
+        posSaw2.set(x, posSaw1.y - SAW_GAP - saw2.getHeight());
+    }
+
+    public Sprite getSaw1() {
+        return saw1;
+    }
+
+    public Vector2 getPosSaw1() {
+        return posSaw1;
     }
 }
