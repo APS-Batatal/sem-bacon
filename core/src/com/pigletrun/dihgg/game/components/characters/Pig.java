@@ -14,14 +14,14 @@ public class Pig extends Actor {
 	private TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
 	private Sprite sprite = new Sprite(atlas.findRegion("p1"));
 	private int frame = 1;
-	private float toX, toY; // variáveis para posicionar o porco
-	private float velocity = 3f; // velocidade de movimento do porco
+//	private float toX, toY; // variáveis para posicionar o porco
+//	private float velocity = 3f; // velocidade de movimento do porco
 
 	public Pig() {
-		toX = 50;
-		toY = Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2;
-		sprite.setPosition(toX, toY);
-		this.setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
+		//toX = 50;
+		//toY = Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2;
+		sprite.setPosition(50, Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2);
+		//this.setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
 
 		Timer.schedule(new Timer.Task(){
 						   @Override
@@ -41,26 +41,25 @@ public class Pig extends Actor {
 		sprite.draw(batch);
 	}
 
-	public void move(float x, float y) {
-		toX = x;
-		if (y <= cam.viewportHeight - 150 && y >= 100) {  
-			toY = y;
-		}
+	public void move(float transition) {
+		if (sprite.getY() >= 100 && sprite.getY() <= cam.viewportHeight - 100 - sprite.getHeight())
+			sprite.translateY(transition);
+		//toY = y;
 	}
 
 	public void update() {
 		// Atualizar a posição do porco
-		if (this.getX() < toX) {
-			this.setX(this.getX() + velocity);
-		} else if (this.getX() > toX) {
-			this.setX(this.getX() - velocity);
-		}
+	/*if (sprite.getX() < cam.viewportWidth/2) // condição para teste somente
+			sprite.translateX(2f);
+			cam.position.x = sprite.getX() + 80;
+			cam.update();
+		    //this.setX(this.getX() + 3f);
 
-		if (this.getY() < toY) {
+		/*if (this.getY() < toY) {
 			this.setY(this.getY() + velocity);
 		} else if (this.getY() > toY) {
 			this.setY(this.getY() - velocity);
 		}
-		sprite.setPosition(this.getX(), this.getY());
+		sprite.setPosition(this.getX(), this.getY());*/
 	}
 }

@@ -24,7 +24,9 @@ public class Saw extends Actor {
         rand = new Random();
         posSaw1 = new Vector2(x, rand.nextInt(Math.round(FLUCTUATION)) + SAW_GAP + LOWEST_OPENING); //  Define posição da serra do topo
         posSaw2 = new Vector2(x, posSaw1.y - SAW_GAP - saw2.getHeight()); // Define posição da serra de baixo
-        this.setPosition();
+
+        saw1.setPosition(posSaw1.x, posSaw1.y);
+        saw2.setPosition(posSaw2.x, posSaw2.y);
     }
 
     @Override
@@ -33,8 +35,9 @@ public class Saw extends Actor {
         saw2.draw(batch);
     }
 
-    public void setPosition() {
-        saw1.setPosition(posSaw1.x, posSaw1.y);
-        saw2.setPosition(posSaw2.x, posSaw2.y);
+    public void update() {
+        saw1.setX(saw1.getX() - 2f);
+        saw2.setX(saw2.getX() - 2f);
+        this.setPosition(saw1.getX(), saw1.getY());
     }
 }
