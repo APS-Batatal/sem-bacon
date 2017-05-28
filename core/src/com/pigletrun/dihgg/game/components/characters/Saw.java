@@ -21,7 +21,7 @@ public class Saw extends Actor {
     private Sprite saw2 = new Sprite(new Texture("images/Saw1.png"));
     private Random rand;
 
-    public Saw(int x) {
+    public Saw(float x) {
         rand = new Random();
         saw1.setPosition(x, rand.nextInt(Math.round(FLUCTUATION)) + SAW_GAP + LOWEST_OPENING);
         saw2.setPosition(x, saw1.getY() - SAW_GAP - saw2.getHeight());

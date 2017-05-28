@@ -3,7 +3,6 @@ package com.pigletrun.dihgg.game.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
-import com.badlogic.gdx.utils.Array;
 import com.pigletrun.dihgg.game.components.characters.Pig;
 import com.pigletrun.dihgg.game.components.characters.Saw;
 import com.pigletrun.dihgg.game.components.ui.Hud;
@@ -13,12 +12,12 @@ import com.pigletrun.dihgg.game.core.GLOBAL;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_COUNT;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_SPACING;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_WIDTH;
+import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
 
 class GameScreen extends BaseScreen {
 	// VARIÁVEIS
 	private Hud hud;
 	private Pig pig; // Porco
-	private Array<Saw> saws;
 
 	GameScreen(Game game) {
 		super(game); // chamar construtor pai
@@ -31,7 +30,7 @@ class GameScreen extends BaseScreen {
 
 		//adiciona serras ao cenário
 		for (int i = 1; i <= SAW_COUNT; i++) {
-			stage.addActor(new Saw(i * (SAW_SPACING + SAW_WIDTH)));
+			stage.addActor(new Saw(i * (SAW_SPACING + SAW_WIDTH) + cam.viewportWidth));
 		}
 
 		// LISTENERS
