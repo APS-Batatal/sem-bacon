@@ -57,12 +57,12 @@ public class Saw extends Actor {
         saw2.draw(batch);
     }
 
-    public void reposition(float x) {
+    private void reposition(float x) {
         saw1.setPosition(x, rand.nextInt(Math.round(FLUCTUATION)) + SAW_GAP + LOWEST_OPENING);
         saw2.setPosition(x, saw1.getY() - SAW_GAP - saw2.getHeight());
     }
 
-    public boolean collides(Rectangle player) {
+    private boolean collides(Rectangle player) {
         return player.overlaps(boundsSaw1) || player.overlaps(boundsSaw2);
     }
 }
