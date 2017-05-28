@@ -10,5 +10,5 @@ public class GLOBAL {
 	public static Ranking ranking = new Ranking();
 	public static OrthographicCamera cam = new OrthographicCamera();
 	public static Rectangle bounds;
-	public static Boolean GAME_OVER = false;
+	public static Boolean GAME_OVER;
 }

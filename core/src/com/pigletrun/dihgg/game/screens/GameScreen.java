@@ -22,6 +22,7 @@ class GameScreen extends BaseScreen {
 
 	GameScreen(Game game) {
 		super(game); // chamar construtor pai
+		GAME_OVER = false;
 
 		pig = new Pig(); // criar novo ator do porco
 		hud = new Hud(stage);
