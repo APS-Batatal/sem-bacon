@@ -4,10 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Timer;
 
 import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
+import static com.pigletrun.dihgg.game.core.GLOBAL.pigBounds;
 
 public class Pig extends Actor {
 
@@ -17,6 +19,7 @@ public class Pig extends Actor {
 
 	public Pig() {
 		sprite.setPosition(50, Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2);
+		pigBounds = new Rectangle(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
 
 		Timer.schedule(new Timer.Task(){
 						   @Override
@@ -39,9 +42,10 @@ public class Pig extends Actor {
 	public void move(float transition) {
 		if (sprite.getY() >= 100 && sprite.getY() <= cam.viewportHeight - 100 - sprite.getHeight())
 			sprite.translateY(transition);
+		pigBounds.setPosition(sprite.getX(), sprite.getY());
 	}
 
-	public void update() {
-
+	public Rectangle getBounds() {
+		return pigBounds;
 	}
 }
