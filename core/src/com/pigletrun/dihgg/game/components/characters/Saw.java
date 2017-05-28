@@ -8,12 +8,12 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 
 import java.util.Random;
 
-import static com.pigletrun.dihgg.game.core.GLOBAL.GAMEOVER;
+import static com.pigletrun.dihgg.game.core.GLOBAL.GAME_OVER;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_COUNT;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_SPACING;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_WIDTH;
+import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
 import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
-import static com.pigletrun.dihgg.game.core.GLOBAL.pigBounds;
 
 public class Saw extends Actor {
     private static final float FLUCTUATION = cam.viewportHeight - 400; // número para posicionamento randômico da serra
@@ -47,8 +47,8 @@ public class Saw extends Actor {
             reposition(saw1.getX() + (SAW_WIDTH + SAW_SPACING) * SAW_COUNT);
         }
 
-        if (collides(pigBounds))
-            GAMEOVER = true;
+        if (collides(bounds))
+            GAME_OVER = true;
     }
 
     @Override

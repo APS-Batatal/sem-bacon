@@ -6,7 +6,6 @@ import com.pigletrun.dihgg.game.screens.IntroScreen;
 class Main extends Game {
 	@Override
 	public void create () {
-		//this.setScreen(new GameScreen(this));
 		this.setScreen(new IntroScreen(this));
 	}
 }

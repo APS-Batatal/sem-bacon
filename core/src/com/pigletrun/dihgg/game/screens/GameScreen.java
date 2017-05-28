@@ -9,7 +9,7 @@ import com.pigletrun.dihgg.game.components.ui.Hud;
 import com.pigletrun.dihgg.game.core.BaseScreen;
 import com.pigletrun.dihgg.game.core.GLOBAL;
 
-import static com.pigletrun.dihgg.game.core.GLOBAL.GAMEOVER;
+import static com.pigletrun.dihgg.game.core.GLOBAL.GAME_OVER;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_COUNT;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_SPACING;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_WIDTH;
@@ -53,7 +53,7 @@ class GameScreen extends BaseScreen {
 	public void render(float delta) {
 		super.render(delta);
 		hud.update();
-		if (GAMEOVER)
+		if (GAME_OVER)
 			game.setScreen(new EndScreen(game));
 	}
 }
