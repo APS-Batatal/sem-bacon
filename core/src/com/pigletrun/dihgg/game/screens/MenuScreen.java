@@ -22,8 +22,10 @@ class MenuScreen extends BaseScreen {
 		// para cada nome de botão
 		for (int i = 0; i < files.length; i++) {
 			String file = files[i]; // pegar o nome atual
+
 			buttons.add(new Button(new Texture(Gdx.files.internal("images/ui/buttons/" + file + "-background.png")))); // criar um botão e adicioná-lo ao array de botões
-			buttons.get(i).toCenter(0, -((buttons.get(i).getHeight() + 50) * i)); // posicioná-lo de acordo
+			buttons.get(i).toCenter(0, -((buttons.get(i).getHeight() + 15) * i)); // posicioná-lo de acordo
+
 			stage.addActor(buttons.get(i)); // adicionar ao stage
 		}
 
