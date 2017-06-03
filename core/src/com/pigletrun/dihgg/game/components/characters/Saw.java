@@ -16,7 +16,7 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
 import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
 
 public class Saw extends Actor {
-    private static final float FLUCTUATION = cam.viewportHeight - 400; // número para posicionamento randômico da serra
+    private static final float FLUCTUATION = 0; // número para posicionamento randômico da serra
     private static final int SAW_GAP = 100; // distância entre as serras superiores
     private static final float LOWEST_OPENING = cam.viewportHeight - 390; // altura mínima aceitável para impedir o não aparecimento da serra na tela
 
