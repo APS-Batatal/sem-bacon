@@ -12,5 +12,8 @@ public class EndScreen extends BaseScreen {
 		super(game);
 
 		retryBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/retry.png")));
+		retryBtn.toCenter();
+
+		stage.addActor(retryBtn);
 	}
 }
