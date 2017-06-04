@@ -25,4 +25,8 @@ public class Ranking {
 			db.put("hiscore", value);
 		}
 	}
+
+	public void clearHiscore() {
+		db.put("hiscore", 0);
+	}
 }

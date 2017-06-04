@@ -6,19 +6,19 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
-
 public class Logo extends Actor {
 	private Sprite sprite;
 
 	public Logo(String image) {
 		sprite = new Sprite(new Texture(Gdx.files.internal("images/logo/" + image)));
-		sprite.setPosition(cam.viewportWidth / 2 - sprite.getWidth() / 2, cam.viewportHeight / 2 - sprite.getHeight() / 2);
+		sprite.setScale(2f);
+		//sprite.setPosition(cam.viewportWidth / 2 - sprite.getWidth() / 2, cam.viewportHeight / 2 - sprite.getHeight() / 2);
+		sprite.setPosition(Gdx.graphics.getWidth() / 2 - sprite.getWidth() / 2, Gdx.graphics.getHeight() / 2 - sprite.getHeight() / 2);
 	}
 
 	@Override
 	public void draw(Batch batch, float alpha) {
-		batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
+		//batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
 		sprite.draw(batch);
 	}
 

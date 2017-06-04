@@ -12,7 +12,7 @@ public class Font {
 	private BitmapFont font;
 
 	public Font(String name) {
-		this(name, 12);
+		this(name, 18);
 	}
 
 	public Font(String name, int size) {

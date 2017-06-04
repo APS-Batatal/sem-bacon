@@ -6,8 +6,6 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
-
 public class Image extends Actor {
 	private Sprite sprite;
 
@@ -18,7 +16,7 @@ public class Image extends Actor {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
+		//batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
 		sprite.draw(batch);
 		super.draw(batch, parentAlpha);
 	}
@@ -27,5 +25,11 @@ public class Image extends Actor {
 	public void setPosition(float x, float y) {
 		sprite.setPosition(x, y);
 		super.setPosition(x, y);
+	}
+
+	@Override
+	public void setScale(float scaleXY) {
+		sprite.setScale(scaleXY);
+		super.setScale(scaleXY);
 	}
 }

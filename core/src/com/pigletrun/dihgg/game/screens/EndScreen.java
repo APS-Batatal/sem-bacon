@@ -11,8 +11,6 @@ import com.pigletrun.dihgg.game.components.ui.Button;
 import com.pigletrun.dihgg.game.core.BaseScreen;
 import com.pigletrun.dihgg.game.core.GLOBAL;
 
-import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
-
 public class EndScreen extends BaseScreen {
 	private Button retryBtn, menuBtn, exitBtn;
 	private Image light, plate;
@@ -23,7 +21,7 @@ public class EndScreen extends BaseScreen {
 		super(game);
 
 		retryBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/retry.png")));
-		btnY = (Gdx.graphics.getHeight() / 2 - retryBtn.getHeight() / 2);
+		btnY = (Gdx.graphics.getHeight() / 2 - retryBtn.getHeight() / 2 - 50);
 		retryBtn.setPosition(24, btnY);
 
 		menuBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/menu.png")));
@@ -33,20 +31,22 @@ public class EndScreen extends BaseScreen {
 		exitBtn.setPosition(menuBtn.getX() + menuBtn.getWidth() + 20, btnY);
 
 		light = new Image("gameover/light.png");
-		light.setPosition(cam.viewportWidth - light.getWidth(), cam.viewportHeight - light.getHeight());
+		light.setScale(2f);
+		light.setPosition(Gdx.graphics.getWidth() - light.getWidth(), Gdx.graphics.getHeight() - light.getHeight());
+
 		plate = new Image("gameover/plate.png");
-		plate.setPosition(cam.viewportWidth - plate.getWidth() - 75, 75);
+		plate.setScale(2f);
+		plate.setPosition(Gdx.graphics.getWidth() - plate.getWidth() - 75, Gdx.graphics.getHeight() - (light.getHeight() + plate.getHeight() + 40));
 
-		text = new Text("VIROU BACON !!!");
-		text.setScale(1.8f);
-		text.setPosition(24, cam.viewportHeight - text.getHeight() - 24);
+		text = new Text("VIROU BACON !!!", 50);
+		text.setPosition(24, Gdx.graphics.getHeight() - text.getHeight() - 80);
 
-		score = new Text("Seus pontos: " + GLOBAL.ranking.getScore());
-		score.setPosition(text.getX(), text.getY() - 40);
+		score = new Text(("Seus pontos: " + GLOBAL.ranking.getScore()), 22);
+		score.setPosition(text.getX(), text.getY() - 80);
 
-		hiscore = new Text("");
+		hiscore = new Text("", 22);
 		if (GLOBAL.ranking.getScore() >= GLOBAL.ranking.getHiscore()) {
-			hiscore.setText("Parabéns, você fez o novo recorde!");
+			hiscore.setText("Parabéns, você bateu o recorde!");
 		} else {
 			hiscore.setText("A pontuação mais alta é " + GLOBAL.ranking.getHiscore());
 		}

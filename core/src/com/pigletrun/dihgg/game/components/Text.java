@@ -6,8 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.pigletrun.dihgg.game.components.ui.Font;
 
-import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
-
 /**
  * Created by Diego on 04/06/2017.
  */
@@ -16,6 +14,11 @@ public class Text extends Actor {
 	private Label label;
 	private Label.LabelStyle labelStyle;
 
+	public Text(String text, int size) {
+		this(text);
+		labelStyle.font = new Font("press-start.ttf", size).get(); // gerar font customizada
+		label.setStyle(labelStyle);
+	}
 	public Text(String text) {
 		labelStyle = new Label.LabelStyle(); // estilo das labels
 		labelStyle.font = new Font("press-start.ttf").get(); // gerar font customizada
@@ -26,6 +29,7 @@ public class Text extends Actor {
 
 	public void setScale(float scale) {
 		label.setFontScale(scale);
+		this.setBounds(label.getX(), label.getY(), label.getWidth(), label.getHeight());
 	}
 
 	public void setText(String text) {
@@ -35,7 +39,7 @@ public class Text extends Actor {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
+		//batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
 		label.draw(batch, parentAlpha);
 		super.draw(batch, parentAlpha);
 	}
