@@ -54,7 +54,9 @@ class GameScreen extends BaseScreen {
 	public void render(float delta) {
 		super.render(delta);
 		hud.update();
-		if (GAME_OVER)
+		if (GAME_OVER) {
+			game.dispose();
 			game.setScreen(new EndScreen(game));
+		}
 	}
 }

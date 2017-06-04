@@ -42,6 +42,7 @@ class MenuScreen extends BaseScreen {
 		playBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				game.dispose();
 				// Trocar para a tela do jogo
 				game.setScreen(new GameScreen(game));
 				return true;
@@ -52,6 +53,7 @@ class MenuScreen extends BaseScreen {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				// Trocar para a tela do jogo
+				game.dispose();
 				game.setScreen(new TutorialScreen(game));
 				return true;
 			}
