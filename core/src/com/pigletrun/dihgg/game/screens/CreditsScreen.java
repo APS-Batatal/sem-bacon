@@ -14,8 +14,8 @@ public class CreditsScreen extends BaseScreen {
 	private Button backBtn;
 	private Image logo;
 	private Text text;
-	private String[] jobs = {"Programação", "Ilustração", "Sonoplastia", "Realização", "powered by"};
-	private String[] names = {"Diego Lopes / Silmara Raquel", "Diego Lopes", "Fulano de Tal", "Unicluster / UNIP", "LIBGDX"};
+	private String[] jobs = {"Programação", "Ilustração", "Música", "Realização", "powered by"};
+	private String[] names = {"Diego Lopes / Silmara Raquel", "Diego Lopes", "FoolBoyMedia", "Unicluster / UNIP", "LIBGDX"};
 
 	public CreditsScreen(final Game game) {
 		super(game);
