@@ -56,6 +56,7 @@ public class EndScreen extends BaseScreen {
 		retryBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				game.dispose();
 				game.setScreen(new GameScreen(game));
 				return true;
 			}
@@ -63,6 +64,7 @@ public class EndScreen extends BaseScreen {
 		menuBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				game.dispose();
 				game.setScreen(new MenuScreen(game));
 				return true;
 			}
