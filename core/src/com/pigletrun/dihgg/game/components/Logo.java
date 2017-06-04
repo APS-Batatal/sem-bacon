@@ -9,16 +9,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
 
 public class Logo extends Actor {
-	private Texture texture;
 	private Sprite sprite;
 
 	public Logo(String image) {
-		this.create(image);
-	}
-
-	private void create(String image) {
-		texture = new Texture(Gdx.files.internal("images/logo/" + image));
-		sprite = new Sprite(texture);
+		sprite = new Sprite(new Texture(Gdx.files.internal("images/logo/" + image)));
 		sprite.setPosition(cam.viewportWidth / 2 - sprite.getWidth() / 2, cam.viewportHeight / 2 - sprite.getHeight() / 2);
 	}
 
@@ -34,7 +28,7 @@ public class Logo extends Actor {
 	}
 
 	public void setSprite(String image) {
-		this.create(image);
+		sprite.setTexture(new Texture(Gdx.files.internal("images/logo/" + image)));
 	}
 
 }

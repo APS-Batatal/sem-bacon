@@ -1,7 +1,5 @@
 package com.pigletrun.dihgg.game.core;
 
-import com.pigletrun.dihgg.game.utils.Database;
-
 public class Ranking {
 	private Database db = new Database("Ranking");
 

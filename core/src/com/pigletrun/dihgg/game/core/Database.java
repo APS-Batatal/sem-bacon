@@ -1,4 +1,4 @@
-package com.pigletrun.dihgg.game.utils;
+package com.pigletrun.dihgg.game.core;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
