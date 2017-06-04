@@ -9,13 +9,22 @@ import com.pigletrun.dihgg.game.components.ui.Button;
 import com.pigletrun.dihgg.game.core.BaseScreen;
 
 public class EndScreen extends BaseScreen {
-	private Button retryBtn;
+	private Button retryBtn, menuBtn, rankBtn;
+	private float btnY;
 
 	EndScreen(final Game game) {
 		super(game);
 
 		retryBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/retry.png")));
-		retryBtn.setPosition(10, Gdx.graphics.getHeight() / 2 - retryBtn.getHeight() / 2);
+		btnY = (Gdx.graphics.getHeight() / 2 - retryBtn.getHeight() / 2);
+		retryBtn.setPosition(10, btnY);
+
+		menuBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/menu.png")));
+		menuBtn.setPosition(retryBtn.getX() + retryBtn.getWidth() + 20, btnY);
+
+		rankBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/ranking.png")));
+		rankBtn.setPosition(menuBtn.getX() + menuBtn.getWidth() + 20, btnY);
+
 
 		//Listeners
 		retryBtn.addListener(new InputListener() {
@@ -26,7 +35,26 @@ public class EndScreen extends BaseScreen {
 				return true;
 			}
 		});
+		menuBtn.addListener(new InputListener() {
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				// Trocar para a tela do jogo
+				game.setScreen(new MenuScreen(game));
+				return true;
+			}
+		});
+		rankBtn.addListener(new InputListener() {
+			@Override
+			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				// Trocar para a tela do jogo
+				game.setScreen(new RankingScreen(game));
+				return true;
+			}
+		});
 
 		stage.addActor(retryBtn);
+		stage.addActor(menuBtn);
+		stage.addActor(rankBtn);
+
 	}
 }

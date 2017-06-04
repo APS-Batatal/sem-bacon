@@ -13,7 +13,7 @@ import java.util.ArrayList;
 class MenuScreen extends BaseScreen {
 	// VARIÁVEIS
 	private Button playBtn, optionsBtn, tutorialBtn, rankingsBtn, exitBtn; // Botões
-	private String[] files = {"play", "options", "tutorial", "rankgings", "exit"}; // lista de nomes dos botões
+	private String[] files = {"play", "options", "tutorial", "ranking", "exit"}; // lista de nomes dos botões
 	private ArrayList<Button> buttons = new ArrayList<Button>(); // array de botões
 
 	MenuScreen(final Game game) {
