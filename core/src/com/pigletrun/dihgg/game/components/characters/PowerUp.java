@@ -11,18 +11,18 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
  */
 
 public class PowerUp extends Actor {
-	private Sprite sprite;
-	private String type;
+    private Sprite sprite;
+    private String type;
 
-	public PowerUp(String file) {
-		sprite = new Sprite(new Texture(Gdx.files.internal("images/characters/powerups/" + file + ".png")));
-		this.setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
-		sprite.setX(Gdx.graphics.getWidth() + 100);
-	}
+    public PowerUp(String file) {
+        sprite = new Sprite(new Texture(Gdx.files.internal("images/characters/powerups/" + file + ".png")));
+        this.setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
+        sprite.setX(Gdx.graphics.getWidth() + 100);
+    }
 
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
-		sprite.setX(sprite.getX() - 1f);
-	}
+    @Override
+    public void draw(Batch batch, float parentAlpha) {
+        super.draw(batch, parentAlpha);
+        sprite.setX(sprite.getX() - 1f);
+    }
 }

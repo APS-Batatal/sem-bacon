@@ -2,6 +2,7 @@ package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -16,9 +17,11 @@ public class CreditsScreen extends BaseScreen {
 	private Text text;
 	private String[] jobs = {"Programação", "Ilustração", "Música por", "Sons por", "Realização", "powered by"};
 	private String[] names = {"Diego Lopes / Silmara Raquel", "Diego Lopes", "FoolBoyMedia", "Juhani Junkala / krzysiunet", "Unicluster / UNIP", "LIBGDX"};
+	private Sound sound;
 
 	public CreditsScreen(final Game game) {
 		super(game);
+		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		logo = new Image("logo/game.png");
 		logo.setPosition(Gdx.graphics.getWidth() / 2 - logo.getWidth() / 2, Gdx.graphics.getHeight() - logo.getHeight() - 48);
@@ -37,6 +40,7 @@ public class CreditsScreen extends BaseScreen {
 		backBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				game.dispose();
 				game.setScreen(new MenuScreen(game));
 				return false;
