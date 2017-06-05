@@ -41,7 +41,7 @@ public class CreditsScreen extends BaseScreen {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				sound.play();
-				game.dispose();
+				dispose();
 				game.setScreen(new MenuScreen(game));
 				return false;
 			}

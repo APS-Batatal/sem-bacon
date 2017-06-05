@@ -38,7 +38,7 @@ public class IntroScreen extends BaseScreen {
 		actions.add(new Action() {
 			@Override
 			public boolean act(float delta) {
-				game.dispose();
+				dispose();
 				game.setScreen(new MenuScreen(game));
 				return true;
 			}

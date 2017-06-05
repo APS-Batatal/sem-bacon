@@ -14,6 +14,7 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_SPACING;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_WIDTH;
 import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
 import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
+import static com.pigletrun.dihgg.game.core.GLOBAL.paused;
 
 public class Saw extends Actor {
     private static final int FLUCTUATION = 150; // número para posicionamento randômico da serra
@@ -37,18 +38,20 @@ public class Saw extends Actor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        // movimenta as serras no eixo x
-        saw1.translateX(-2f);
-        saw2.translateX(-2f);
-        boundsSaw1.setPosition(saw1.getX(), saw1.getY());
-        boundsSaw2.setPosition(saw2.getX(), saw2.getY());
-        // efetuada o reposicionamento das serraa conforme estas saem da tela
-        if (saw1.getX() + saw1.getWidth() < 0) {
-            reposition(saw1.getX() + (SAW_WIDTH + SAW_SPACING) * SAW_COUNT);
-        }
+        if (!paused) {
+            // movimenta as serras no eixo x
+            saw1.translateX(-2f);
+            saw2.translateX(-2f);
+            boundsSaw1.setPosition(saw1.getX(), saw1.getY());
+            boundsSaw2.setPosition(saw2.getX(), saw2.getY());
+            // efetuada o reposicionamento das serraa conforme estas saem da tela
+            if (saw1.getX() + saw1.getWidth() < 0) {
+                reposition(saw1.getX() + (SAW_WIDTH + SAW_SPACING) * SAW_COUNT);
+            }
 
-        if (collides(bounds))
-            GAME_OVER = true;
+            if (collides(bounds))
+                GAME_OVER = true;
+        }
     }
 
     @Override

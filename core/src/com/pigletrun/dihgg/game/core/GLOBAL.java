@@ -11,4 +11,5 @@ public class GLOBAL {
 	public static OrthographicCamera cam = new OrthographicCamera();
 	public static Rectangle bounds;
 	public static Boolean GAME_OVER;
+	public static Boolean paused = false; // para pausar o jogo
 }
