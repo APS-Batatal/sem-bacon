@@ -2,6 +2,7 @@ package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -16,9 +17,12 @@ public class EndScreen extends BaseScreen {
 	private Image light, plate;
 	private Text text, score, hiscore;
 	private float btnY;
+	private Sound sound;
 
 	public EndScreen(final Game game) {
 		super(game);
+
+		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		retryBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/retry.png")));
 		btnY = (Gdx.graphics.getHeight() / 2 - retryBtn.getHeight() / 2 - 50);
@@ -56,6 +60,7 @@ public class EndScreen extends BaseScreen {
 		retryBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				game.dispose();
 				game.setScreen(new GameScreen(game));
 				return true;
@@ -64,6 +69,7 @@ public class EndScreen extends BaseScreen {
 		menuBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				game.dispose();
 				game.setScreen(new MenuScreen(game));
 				return true;
@@ -72,6 +78,7 @@ public class EndScreen extends BaseScreen {
 		exitBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				// TODO: confirmar saída
 				Gdx.app.exit();
 				return true;

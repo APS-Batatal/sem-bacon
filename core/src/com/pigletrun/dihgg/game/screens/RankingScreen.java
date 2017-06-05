@@ -2,6 +2,7 @@ package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -14,9 +15,12 @@ public class RankingScreen extends BaseScreen {
 
 	private Text text, hiscore;
 	private Button backBtn, clearHiscore;
+	private Sound sound;
 
 	public RankingScreen(final Game game) {
 		super(game);
+
+		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		text = new Text("O Recorde atual é de:");
 		text.setPosition((Gdx.graphics.getWidth() / 2 - text.getWidth() / 2), (Gdx.graphics.getHeight() / 2 + text.getHeight() * 3));
@@ -35,6 +39,7 @@ public class RankingScreen extends BaseScreen {
 		backBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				game.dispose();
 				game.setScreen(new MenuScreen(game));
 				return true;
@@ -44,6 +49,7 @@ public class RankingScreen extends BaseScreen {
 		clearHiscore.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				GLOBAL.ranking.clearHiscore();
 				game.dispose();
 				game.setScreen(new RankingScreen(game));

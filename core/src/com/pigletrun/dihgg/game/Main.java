@@ -10,8 +10,7 @@ class Main extends Game {
 
 	@Override
 	public void create () {
-		//adiciona musica ao game
-		music = new Musics("bg-music.mp3", 0.5f);
+		music = new Musics("bg-music.mp3", 0.5f); //adiciona musica ao game
 		this.setScreen(new IntroScreen(this));
 	}
 }

@@ -2,6 +2,7 @@ package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -16,11 +17,13 @@ public class MenuScreen extends BaseScreen {
 	private Button playBtn, optionsBtn, tutorialBtn, rankBtn, creditsBtn, exitBtn; // Botões
 	private String[] files = {"play", "options", "tutorial", "ranking", "credits", "exit"}; // lista de nomes dos botões
 	private ArrayList<Button> buttons = new ArrayList<Button>(); // array de botões
+	private Sound sound;
 
 	private Image logo;
 
 	public MenuScreen(final Game game) {
 		super(game);
+		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		// criar e posicionar logo
 		logo = new Image("logo/game.png");
@@ -63,6 +66,7 @@ public class MenuScreen extends BaseScreen {
 		playBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				game.dispose();
 				game.setScreen(new GameScreen(game));
 				return true;
@@ -72,6 +76,7 @@ public class MenuScreen extends BaseScreen {
 		tutorialBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				game.dispose();
 				game.setScreen(new TutorialScreen(game));
 				return true;
@@ -81,7 +86,7 @@ public class MenuScreen extends BaseScreen {
 		rankBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				// Trocar para a tela do jogo
+				sound.play();
 				game.dispose();
 				game.setScreen(new RankingScreen(game));
 				return true;
@@ -91,6 +96,7 @@ public class MenuScreen extends BaseScreen {
 		creditsBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				game.dispose();
 				game.setScreen(new CreditsScreen(game));
 				return true;
@@ -100,6 +106,7 @@ public class MenuScreen extends BaseScreen {
 		exitBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				sound.play();
 				//TODO: box de confirmação
 				Gdx.app.exit();
 				return true;
