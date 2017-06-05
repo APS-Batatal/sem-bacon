@@ -1,6 +1,5 @@
 package com.pigletrun.dihgg.game.components.characters;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -17,9 +16,9 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
 import static com.pigletrun.dihgg.game.core.GLOBAL.paused;
 
 public class Saw extends Actor {
-    private static final int FLUCTUATION = 150; // número para posicionamento randômico da serra
-    private static final int SAW_GAP = 100; // distância entre as serras superiores
-    private static final float LOWEST_OPENING = Gdx.graphics.getHeight() - 390; // altura mínima aceitável para impedir o não aparecimento da serra na tela
+    private static final int FLUCTUATION = 130; // número para posicionamento randômico da serra
+    private static final int SAW_GAP = 300; // distância entre as serras superiores
+    private static final float LOWEST_OPENING = 120; // altura mínima aceitável para impedir o não aparecimento da serra na tela
 
     private Sprite saw1 = new Sprite(new Texture("images/Saw1.png"));
     private Sprite saw2 = new Sprite(new Texture("images/Saw1.png"));

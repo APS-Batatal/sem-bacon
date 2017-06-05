@@ -56,13 +56,13 @@ class GameScreen extends BaseScreen {
 			}
 		});
 
-		hud = new Hud(stage);
 		stage.addActor(pig); // Adicionar o porco ao cenário
 		//adiciona serras ao cenário
 		for (int i = 1; i <= SAW_COUNT; i++) {
 			stage.addActor(new Saw(i * (SAW_SPACING + SAW_WIDTH) + Gdx.graphics.getWidth()));
 		}
 		stage.addActor(pauseBtn);
+		hud = new Hud(stage);
 	}
 
 	@Override
