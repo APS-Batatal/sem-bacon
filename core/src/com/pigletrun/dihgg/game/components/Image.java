@@ -16,7 +16,6 @@ public class Image extends Actor {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		//batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
 		sprite.draw(batch);
 		super.draw(batch, parentAlpha);
 	}

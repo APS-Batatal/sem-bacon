@@ -9,7 +9,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Timer;
 
 import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
-import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
 import static com.pigletrun.dihgg.game.core.GLOBAL.paused;
 
 public class Pig extends Actor {
@@ -19,7 +18,7 @@ public class Pig extends Actor {
 	private int frame = 1;
 
 	public Pig() {
-		sprite.setPosition(50, Gdx.graphics.getHeight() / 4 - sprite.getHeight() / 2);
+		sprite.setPosition(50, Gdx.graphics.getHeight() / 2 - sprite.getHeight() / 2);
 		bounds = new Rectangle(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
 
 		Timer.schedule(new Timer.Task(){
@@ -36,13 +35,12 @@ public class Pig extends Actor {
 
 	@Override
 	public void draw(Batch batch, float alpha) {
-		//batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
 		sprite.draw(batch);
 	}
 
 	public void move(float transition) {
 		if (!paused) {
-			if (sprite.getY() >= 100 && sprite.getY() <= cam.viewportHeight - 100 - sprite.getHeight())
+			if (sprite.getY() >= 100 && sprite.getY() <= Gdx.graphics.getHeight() - 100 - sprite.getHeight())
 				sprite.translateY(transition);
 			bounds.setPosition(sprite.getX(), sprite.getY());
 		}

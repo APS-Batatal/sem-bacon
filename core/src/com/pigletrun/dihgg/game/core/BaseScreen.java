@@ -7,8 +7,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
-import static com.pigletrun.dihgg.game.core.GLOBAL.cam;
-
 public class BaseScreen implements Screen {
 	// Variáveis
 
@@ -18,7 +16,7 @@ public class BaseScreen implements Screen {
 
 	public BaseScreen(final Game game) {
 		// TODO: Não tem nada mais simples do que isso não?
-		cam.setToOrtho(false, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2); // Seta a câmera para projeção ortográfica
+		//cam.setToOrtho(false, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2); // Seta a câmera para projeção ortográfica
 		this.game = game; // Atribuir a variavel de game
 		batch = new SpriteBatch(); // iniciar o 'spritebatch'
 		stage = new Stage(); // iniciar o 'stage'

@@ -39,7 +39,6 @@ public class Text extends Actor {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		//batch.setProjectionMatrix(cam.combined); //Instrui o "batch" a usar a matriz combinada
 		label.draw(batch, parentAlpha);
 		super.draw(batch, parentAlpha);
 	}
