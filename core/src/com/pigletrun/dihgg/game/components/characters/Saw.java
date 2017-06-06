@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.pigletrun.dihgg.game.core.GLOBAL;
 
 import java.util.Random;
 
@@ -48,8 +49,13 @@ public class Saw extends Actor {
                 reposition(saw1.getX() + (SAW_WIDTH + SAW_SPACING) * SAW_COUNT);
             }
 
+            // verifica colisão com o porco
             if (collides(bounds))
                 GAME_OVER = true;
+
+            // verifica se porco passou pela serra
+            if (boundsSaw1.getWidth() + boundsSaw1.getX() < bounds.getX())
+                GLOBAL.ranking.addScore(1);
         }
     }
 

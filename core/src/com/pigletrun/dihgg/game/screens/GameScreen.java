@@ -37,8 +37,6 @@ class GameScreen extends BaseScreen {
 					pig.move(-5f); // pig.moveDown();
 				else if (getDeltaY() < 0)
 					pig.move(5f); //  pig.moveUp();
-
-				GLOBAL.ranking.addScore(10);
 			}
 		});
 

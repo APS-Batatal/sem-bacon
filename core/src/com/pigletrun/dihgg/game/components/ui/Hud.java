@@ -102,8 +102,8 @@ public class Hud {
 		scoreLabel.setText("PONTOS: " + String.valueOf(score)); // Atualizar label
 
 		// se score for maior do que hiscore, remover hiscore
-		if ((score > hiscore) && hiscoreLabel.isVisible()) {
+		/*if ((score > hiscore) && hiscoreLabel.isVisible()) {
 			hiscoreLabel.setVisible(false);
-		}
+		}*/
 	}
 }
