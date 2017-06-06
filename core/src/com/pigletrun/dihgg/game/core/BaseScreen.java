@@ -12,11 +12,9 @@ public class BaseScreen implements Screen {
 
 	protected Game game; // a variável game (importante para o sistema)
 	protected Stage stage; // a variável de 'stage'
-	private SpriteBatch batch; // o 'batch' de desenho
+    protected SpriteBatch batch; // o 'batch' de desenho
 
 	public BaseScreen(final Game game) {
-		// TODO: Não tem nada mais simples do que isso não?
-		//cam.setToOrtho(false, Gdx.graphics.getWidth() / 2, Gdx.graphics.getHeight() / 2); // Seta a câmera para projeção ortográfica
 		this.game = game; // Atribuir a variavel de game
 		batch = new SpriteBatch(); // iniciar o 'spritebatch'
 		stage = new Stage(); // iniciar o 'stage'

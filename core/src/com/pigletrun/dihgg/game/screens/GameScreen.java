@@ -2,13 +2,10 @@ package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.pigletrun.dihgg.game.components.characters.Pig;
 import com.pigletrun.dihgg.game.components.characters.Saw;
-import com.pigletrun.dihgg.game.components.ui.Button;
 import com.pigletrun.dihgg.game.components.ui.Hud;
 import com.pigletrun.dihgg.game.core.BaseScreen;
 import com.pigletrun.dihgg.game.core.GLOBAL;
@@ -17,32 +14,21 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.GAME_OVER;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_COUNT;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_SPACING;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_WIDTH;
-import static com.pigletrun.dihgg.game.core.GLOBAL.paused;
+import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 
 class GameScreen extends BaseScreen {
 	// VARIÁVEIS
 	private Hud hud;
 	private Pig pig; // Porco
-	private Button pauseBtn;
 
 	GameScreen(final Game game) {
 		super(game); // chamar construtor pai
 		GAME_OVER = false;
+		gamePaused = false;
 
 		GLOBAL.ranking.setScore(0); // zerar o score
 
 		pig = new Pig(); // criar novo ator do porco
-
-		pauseBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/pause.png")));
-		pauseBtn.setPosition(Gdx.graphics.getWidth() - pauseBtn.getWidth() - 24, Gdx.graphics.getHeight() - pauseBtn.getHeight() - 24);
-		pauseBtn.addListener(new InputListener() {
-			@Override
-			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				paused = !paused;
-				return true;
-			}
-
-		});
 
 		stage.addListener(new DragListener() {
 			@Override
@@ -61,7 +47,6 @@ class GameScreen extends BaseScreen {
 		for (int i = 1; i <= SAW_COUNT; i++) {
 			stage.addActor(new Saw(i * (SAW_SPACING + SAW_WIDTH) + Gdx.graphics.getWidth()));
 		}
-		stage.addActor(pauseBtn);
 		hud = new Hud(stage);
 	}
 
@@ -73,5 +58,10 @@ class GameScreen extends BaseScreen {
 			dispose();
 			game.setScreen(new EndScreen(game));
 		}
+
+		/*if (musicPlaying){
+			//music.dispose();
+			//effects.dispose();
+		}*/
 	}
 }

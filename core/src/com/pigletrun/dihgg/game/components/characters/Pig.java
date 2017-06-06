@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Timer;
 
 import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
-import static com.pigletrun.dihgg.game.core.GLOBAL.paused;
+import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 
 public class Pig extends Actor {
 
@@ -39,8 +39,8 @@ public class Pig extends Actor {
 	}
 
 	public void move(float transition) {
-		if (!paused) {
-			if (sprite.getY() >= 100 && sprite.getY() <= Gdx.graphics.getHeight() - 100 - sprite.getHeight())
+        if (!gamePaused) {
+            if (sprite.getY() >= 100 && sprite.getY() <= Gdx.graphics.getHeight() - 100 - sprite.getHeight())
 				sprite.translateY(transition);
 			bounds.setPosition(sprite.getX(), sprite.getY());
 		}

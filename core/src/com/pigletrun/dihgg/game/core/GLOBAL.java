@@ -9,5 +9,6 @@ public class GLOBAL {
     public static Rectangle bounds; // pig bounds
 	public static Ranking ranking = new Ranking();
 	public static Boolean GAME_OVER;
-	public static Boolean paused = false; // para pausar o jogo
+    public static Boolean gamePaused; // para pausar o jogo
+    public static Boolean musicPlaying = false;
 }

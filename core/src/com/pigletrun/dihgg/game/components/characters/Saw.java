@@ -13,12 +13,12 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_COUNT;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_SPACING;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_WIDTH;
 import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
-import static com.pigletrun.dihgg.game.core.GLOBAL.paused;
+import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 
 public class Saw extends Actor {
-    private static final int FLUCTUATION = 130; // número para posicionamento randômico da serra
-    private static final int SAW_GAP = 300; // distância entre as serras superiores
-    private static final float LOWEST_OPENING = 120; // altura mínima aceitável para impedir o não aparecimento da serra na tela
+    private static final int FLUCTUATION = 360; // número para posicionamento randômico da serra
+    private static final int SAW_GAP = 200; // distância entre as serras superiores
+    private static final float LOWEST_OPENING = 100; // altura mínima aceitável para impedir o não aparecimento da serra na tela
 
     private Sprite saw1 = new Sprite(new Texture("images/Saw1.png"));
     private Sprite saw2 = new Sprite(new Texture("images/Saw1.png"));
@@ -37,7 +37,7 @@ public class Saw extends Actor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        if (!paused) {
+        if (!gamePaused) {
             // movimenta as serras no eixo x
             saw1.translateX(-2f);
             saw2.translateX(-2f);
