@@ -27,8 +27,8 @@ public class MenuScreen extends BaseScreen {
 
 		// criar e posicionar logo
 		logo = new Image("logo/game.png");
-		//logo.setScale(0.5f);
-		logo.setPosition(24, Gdx.graphics.getHeight() / 2 - logo.getHeight() / 2);
+		logo.setScale(1.5f);
+		logo.setPosition(60, Gdx.graphics.getHeight() / 2 - logo.getHeight() / 2);
 		stage.addActor(logo);
 
 		// para cada nome de botão

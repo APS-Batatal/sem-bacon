@@ -37,7 +37,7 @@ class TutorialScreen extends BaseScreen {
 			}
 		});
 
-		stage.addActor(backBtn);
 		stage.addActor(image);
+		stage.addActor(backBtn);
 	}
 }
