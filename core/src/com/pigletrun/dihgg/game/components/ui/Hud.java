@@ -1,5 +1,6 @@
 package com.pigletrun.dihgg.game.components.ui;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.pigletrun.dihgg.game.components.Image;
 import com.pigletrun.dihgg.game.core.GLOBAL;
+import com.pigletrun.dihgg.game.screens.MenuScreen;
 
 import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
@@ -25,7 +27,7 @@ public class Hud {
 	private Button pauseBtn, musicBtn, menuBtn;
 	private Image bg;
 
-	public Hud(final Stage stage) {
+	public Hud(final Stage stage, final Game game) {
 		//iniciar variáveis
 		score = GLOBAL.ranking.getScore();
 		hiscore = GLOBAL.ranking.getHiscore();
@@ -53,8 +55,9 @@ public class Hud {
 		menuBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-
-				return super.touchDown(event, x, y, pointer, button);
+				game.dispose();
+				game.setScreen(new MenuScreen(game));
+				return false;
 			}
 		});
 
@@ -80,10 +83,15 @@ public class Hud {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				musicPlaying = !musicPlaying;
-				if (musicPlaying)
+				if (musicPlaying) {
 					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/mute.png")));
-				else
+					GLOBAL.MUSIC.setVolume(0);
+
+				} else {
 					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/music.png")));
+					GLOBAL.MUSIC.setVolume(.5f);
+
+				}
 				return super.touchDown(event, x, y, pointer, button);
 			}
 		});

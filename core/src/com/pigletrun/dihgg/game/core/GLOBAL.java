@@ -1,5 +1,6 @@
 package com.pigletrun.dihgg.game.core;
 
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.math.Rectangle;
 
 public class GLOBAL {
@@ -11,4 +12,5 @@ public class GLOBAL {
 	public static Boolean GAME_OVER;
     public static Boolean gamePaused; // para pausar o jogo
     public static Boolean musicPlaying = false;
+	public static Music MUSIC = null;
 }

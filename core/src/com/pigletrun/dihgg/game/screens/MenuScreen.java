@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class MenuScreen extends BaseScreen {
 	// VARIÁVEIS
 	private Button playBtn, optionsBtn, tutorialBtn, rankBtn, creditsBtn, exitBtn; // Botões
-	private String[] files = {"play", "options", "tutorial", "ranking", "credits", "exit"}; // lista de nomes dos botões
+	private String[] files = {"play", "tutorial", "ranking", "credits", "exit"}; // lista de nomes dos botões
 	private ArrayList<Button> buttons = new ArrayList<Button>(); // array de botões
 	private Sound sound;
 
@@ -44,16 +44,16 @@ public class MenuScreen extends BaseScreen {
 		// Atribuir cada botão a sua respectiva variável
 		// TODO: Ver como melhorar isso
 		playBtn = buttons.get(0);
-		optionsBtn = buttons.get(1);
-		tutorialBtn = buttons.get(2);
-		rankBtn = buttons.get(3);
-		creditsBtn = buttons.get(4);
-		exitBtn = buttons.get(5);
+		//optionsBtn = buttons.get(1);
+		tutorialBtn = buttons.get(1);
+		rankBtn = buttons.get(2);
+		creditsBtn = buttons.get(3);
+		exitBtn = buttons.get(4);
 
 		//posicionar cada um dos botões
 
 		playBtn.setPosition(Gdx.graphics.getWidth() / 2 - playBtn.getWidth() / 2 + 100, Gdx.graphics.getHeight() / 2 - playBtn.getWidth() / 4);
-		optionsBtn.setPosition(playBtn.getX() + optionsBtn.getWidth() + 24, playBtn.getY());
+		//optionsBtn.setPosition(playBtn.getX() + optionsBtn.getWidth() + 24, playBtn.getY());
 		tutorialBtn.setPosition(playBtn.getX(), playBtn.getY() - tutorialBtn.getHeight() - 24);
 		rankBtn.setPosition(tutorialBtn.getX() + rankBtn.getWidth() + 24, tutorialBtn.getY());
 		creditsBtn.setPosition(tutorialBtn.getX(), tutorialBtn.getY() - creditsBtn.getHeight() - 24);

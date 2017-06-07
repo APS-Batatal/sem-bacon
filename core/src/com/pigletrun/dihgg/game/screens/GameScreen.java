@@ -45,7 +45,7 @@ class GameScreen extends BaseScreen {
 		for (int i = 1; i <= SAW_COUNT; i++) {
 			stage.addActor(new Saw(i * (SAW_SPACING + SAW_WIDTH) + Gdx.graphics.getWidth()));
 		}
-		hud = new Hud(stage);
+		hud = new Hud(stage, game);
 	}
 
 	@Override

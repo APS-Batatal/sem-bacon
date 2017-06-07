@@ -19,6 +19,9 @@ public class Musics {
         music.play();
     }
 
+    public Music get() {
+        return music;
+    }
     public boolean playing() {
         return music.isPlaying();
     }
