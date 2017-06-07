@@ -14,7 +14,7 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 public class Pig extends Actor {
 
 	private TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
-	private Sprite sprite = new Sprite(atlas.findRegion("p1"));
+	private Sprite sprite = new Sprite(atlas.findRegion("Pig1"));
 	private int frame = 1;
 
 	public Pig() {
@@ -27,7 +27,7 @@ public class Pig extends Actor {
 							   frame++;
 							   if (frame > 6)
 								   frame = 1;
-							   sprite.setRegion(atlas.findRegion("p" + frame));
+							   sprite.setRegion(atlas.findRegion("Pig" + frame));
 						   }
 					   }
 				, 0, 5 / 30.0f);
