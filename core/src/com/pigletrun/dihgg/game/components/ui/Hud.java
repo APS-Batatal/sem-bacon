@@ -74,16 +74,16 @@ public class Hud {
 		});
 
 		// Cria botão musica
-		musicBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/pause.png")));
+		musicBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/music.png")));
 		musicBtn.setPosition(pauseBtn.getX() - musicBtn.getWidth() - 50, Gdx.graphics.getHeight() - pauseBtn.getHeight() - 24);
 		musicBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				musicPlaying = !musicPlaying;
 				if (musicPlaying)
-					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/unpause.png")));
+					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/mute.png")));
 				else
-					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/pause.png")));
+					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/music.png")));
 				return super.touchDown(event, x, y, pointer, button);
 			}
 		});
