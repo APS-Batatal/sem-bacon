@@ -39,8 +39,8 @@ public class Saw extends Actor {
 		saw1.setPosition(x, rand.nextInt(FLUCTUATION) + SAW_GAP + LOWEST_OPENING);
 		saw2.setPosition(x, saw1.getY() - SAW_GAP - saw2.getHeight());
 
-		boundsSaw1 = new Rectangle(saw1.getX(), saw1.getY(), saw1.getWidth(), saw1.getHeight());
-		boundsSaw2 = new Rectangle(saw2.getX(), saw2.getY(), saw2.getWidth(), saw2.getHeight());
+		boundsSaw1 = new Rectangle(saw1.getX(), saw1.getY(), saw1.getWidth() - 20, saw1.getHeight() - 20);
+		boundsSaw2 = new Rectangle(saw2.getX(), saw2.getY(), saw2.getWidth() - 20, saw2.getHeight() - 20);
 	}
 
 	@Override

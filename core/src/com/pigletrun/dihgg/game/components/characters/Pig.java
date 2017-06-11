@@ -19,7 +19,7 @@ public class Pig extends Actor {
 
 	public Pig() {
 		sprite.setPosition(50, Gdx.graphics.getHeight() / 2 - sprite.getHeight() / 2);
-		bounds = new Rectangle(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
+		bounds = new Rectangle(sprite.getX(), sprite.getY(), sprite.getWidth() - 20, sprite.getHeight() - 20);
 
 		Timer.schedule(new Timer.Task(){
 						   @Override
