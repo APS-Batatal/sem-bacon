@@ -20,6 +20,7 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
 import static com.pigletrun.dihgg.game.core.GLOBAL.settings;
 
 public class Hud {
+	public static float bgHeight;
 	//variaveis
 	private int score;
 	private LabelStyle labelStyle;
@@ -35,6 +36,7 @@ public class Hud {
 
 		bg = new Image("ui/buttons/hudbg.png");
 		bg.setPosition(0, Gdx.graphics.getHeight() - bg.getHeight());
+		bgHeight = bg.getHeight();
 
 		// Criar estilo das labels
 		labelStyle = new LabelStyle(); // estilo das labels
