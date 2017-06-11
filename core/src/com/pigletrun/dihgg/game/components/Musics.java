@@ -11,22 +11,14 @@ public class Musics {
 
     private Music music;
 
-    public Musics(String file, float volume) {
+    public Musics() {
         //adiciona musica ao game
-        music = Gdx.audio.newMusic(Gdx.files.internal("music/" + file));
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/bg-music.mp3"));
         music.setLooping(true);
-        music.setVolume(volume);
         music.play();
     }
 
-    public Music get() {
-        return music;
-    }
-    public boolean playing() {
-        return music.isPlaying();
-    }
-
-    public void dispose() {
-        music.dispose();
+    public void setVolume(float volume) {
+        music.setVolume(volume);
     }
 }

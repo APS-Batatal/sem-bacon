@@ -97,10 +97,8 @@ public class Hud {
 				if (musicPlaying) {
 					sound.play();
 					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/music.png")));
-					GLOBAL.MUSIC.setVolume(.5f);
 				} else {
 					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/mute.png")));
-					GLOBAL.MUSIC.setVolume(0);
 				}
 				settings.setMusic(musicPlaying);
 				return super.touchDown(event, x, y, pointer, button);
