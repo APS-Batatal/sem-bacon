@@ -1,5 +1,7 @@
 package com.pigletrun.dihgg.game.components.characters;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -25,9 +27,15 @@ public class Saw extends Actor {
     private Sprite saw2 = new Sprite(new Texture("images/Saw1.png"));
     private Rectangle boundsSaw1, boundsSaw2;
     private Random rand;
+    private Sound sound;
+    private float velocity;
+    private int pigPassed, playSound;
 
     public Saw(float x) {
         rand = new Random();
+        sound = Gdx.audio.newSound(Gdx.files.internal("sound/saw.wav"));
+        velocity = -2;
+
         saw1.setPosition(x, rand.nextInt(FLUCTUATION) + SAW_GAP + LOWEST_OPENING);
         saw2.setPosition(x, saw1.getY() - SAW_GAP - saw2.getHeight());
 
@@ -40,22 +48,33 @@ public class Saw extends Actor {
         super.act(delta);
         if (!gamePaused) {
             // movimenta as serras no eixo x
-            saw1.translateX(-2f);
-            saw2.translateX(-2f);
+            saw1.translateX(velocity);
+            saw2.translateX(velocity);
             boundsSaw1.setPosition(saw1.getX(), saw1.getY());
             boundsSaw2.setPosition(saw2.getX(), saw2.getY());
-            // efetuada o reposicionamento das serraa conforme estas saem da tela
-            if (saw1.getX() + saw1.getWidth() < 0) {
-                reposition(saw1.getX() + (SAW_WIDTH + SAW_SPACING) * SAW_COUNT);
+
+            // efetua o reposicionamento das serra conforme estas saem da tela
+            if (boundsSaw1.getX() + boundsSaw1.getWidth() < 0) {
+                reposition(boundsSaw1.getX() + (SAW_WIDTH + SAW_SPACING) * SAW_COUNT);
             }
 
             // verifica colisão com o porco
-            if (collides(bounds))
+            if (collides(bounds)) {
                 GAME_OVER = true;
+            }
+
+            // Verifica início da passagem do porco pela serra
+            if (boundsSaw1.getX() <= bounds.getX() + (bounds.getWidth() / 2) && !GAME_OVER) {
+                playSound++;
+                if (playSound == 1)
+                    sound.play();
+            } else playSound = 0;
 
             // verifica se porco passou pela serra
-            if (boundsSaw1.getWidth() + boundsSaw1.getX() < bounds.getX())
-                GLOBAL.ranking.addScore(1);
+            if (boundsSaw1.getWidth() + boundsSaw1.getX() <= bounds.getX()) {
+                pigPassed++;
+                if (pigPassed == 1) GLOBAL.ranking.addScore(10);
+            } else pigPassed = 0;
         }
     }
 
