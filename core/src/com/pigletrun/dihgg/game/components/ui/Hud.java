@@ -17,9 +17,9 @@ import com.pigletrun.dihgg.game.screens.MenuScreen;
 
 import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
+import static com.pigletrun.dihgg.game.core.GLOBAL.settings;
 
 public class Hud {
-	public static float bgSize;
 	//variaveis
 	private int score;
 	private LabelStyle labelStyle;
@@ -35,7 +35,6 @@ public class Hud {
 
 		bg = new Image("ui/buttons/hudbg.png");
 		bg.setPosition(0, Gdx.graphics.getHeight() - bg.getHeight());
-		bgSize = bg.getHeight();
 
 		// Criar estilo das labels
 		labelStyle = new LabelStyle(); // estilo das labels
@@ -79,21 +78,21 @@ public class Hud {
 		});
 
 		// Cria botão musica
-		musicBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/music.png")));
+		musicPlaying = settings.getMusic();
+		musicBtn = new Button(new Texture(Gdx.files.internal((musicPlaying) ? "images/ui/buttons/music.png" : "images/ui/buttons/mute.png")));
 		musicBtn.setPosition(pauseBtn.getX() - musicBtn.getWidth() - 50, Gdx.graphics.getHeight() - pauseBtn.getHeight() - 24);
 		musicBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				musicPlaying = !musicPlaying;
 				if (musicPlaying) {
-					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/mute.png")));
-					GLOBAL.MUSIC.setVolume(0);
-
-				} else {
 					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/music.png")));
 					GLOBAL.MUSIC.setVolume(.5f);
-
+				} else {
+					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/mute.png")));
+					GLOBAL.MUSIC.setVolume(0);
 				}
+				settings.setMusic(musicPlaying);
 				return super.touchDown(event, x, y, pointer, button);
 			}
 		});
@@ -110,5 +109,10 @@ public class Hud {
 	public void update() {
 		score = GLOBAL.ranking.getScore(); // Atualizar valor de score
 		scoreLabel.setText("PONTOS: " + String.valueOf(score)); // Atualizar label
+
+		// se score for maior do que hiscore, remover hiscore
+		if ((score > hiscore) && hiscoreLabel.isVisible()) {
+			hiscoreLabel.setVisible(false);
+		}
 	}
 }

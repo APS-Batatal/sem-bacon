@@ -13,6 +13,9 @@ class Main extends Game {
 	public void create () {
 		music = new Musics("bg-music.mp3", 0.5f); //adiciona musica ao game
 		GLOBAL.MUSIC = music.get();
+		if (!GLOBAL.musicPlaying) {
+			GLOBAL.MUSIC.setVolume(0);
+		}
 		this.setScreen(new IntroScreen(this));
 	}
 }
