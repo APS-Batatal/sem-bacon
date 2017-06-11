@@ -40,11 +40,11 @@ public class Saw extends Actor {
         super.act(delta);
         if (!gamePaused) {
             // movimenta as serras no eixo x
-            saw1.translateX(-2f);
-            saw2.translateX(-2f);
-            boundsSaw1.setPosition(saw1.getX(), saw1.getY());
-            boundsSaw2.setPosition(saw2.getX(), saw2.getY());
-            // efetuada o reposicionamento das serraa conforme estas saem da tela
+			saw1.translateX(-5f);
+			saw2.translateX(-5f);
+			boundsSaw1.setPosition(saw1.getX(), saw1.getY());
+			boundsSaw2.setPosition(saw2.getX(), saw2.getY());
+			// efetuada o reposicionamento das serraa conforme estas saem da tela
             if (saw1.getX() + saw1.getWidth() < 0) {
                 reposition(saw1.getX() + (SAW_WIDTH + SAW_SPACING) * SAW_COUNT);
             }

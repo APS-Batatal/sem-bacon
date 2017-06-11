@@ -20,11 +20,21 @@ public class Database {
 		preferences.flush();
 	}
 
+	public void put(String key, boolean value) {
+		preferences.putBoolean(key, value);
+		preferences.flush();
+	}
+
+
 	public String getString(String key) {
 		return preferences.getString(key);
 	}
 
 	public int getInt(String key) {
 		return preferences.getInteger(key);
+	}
+
+	public boolean getBoolean(String key) {
+		return preferences.getBoolean(key);
 	}
 }

@@ -56,10 +56,5 @@ class GameScreen extends BaseScreen {
 			dispose();
 			game.setScreen(new EndScreen(game));
 		}
-
-		/*if (musicPlaying){
-			//music.dispose();
-			//effects.dispose();
-		}*/
 	}
 }
