@@ -42,12 +42,12 @@ public class Pig extends Actor {
 	public void move(float transition) {
         if (!gamePaused) {
 
-            if (sprite.getY() >= 0 && sprite.getY() <= Gdx.graphics.getHeight() - Hud.bgSize - sprite.getHeight())
-                sprite.translateY(transition);
+			if (sprite.getY() >= 0 && sprite.getY() <= Gdx.graphics.getHeight() - Hud.bgHeight - sprite.getHeight())
+				sprite.translateY(transition);
             else if (sprite.getY() < 0)
                 sprite.setY(0);
             else
-                sprite.setY(Gdx.graphics.getHeight() - Hud.bgSize - sprite.getHeight());
+				sprite.setY(Gdx.graphics.getHeight() - Hud.bgHeight - sprite.getHeight());
 
 			bounds.setPosition(sprite.getX(), sprite.getY());
 		}
