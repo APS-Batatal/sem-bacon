@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.Timer;
+import com.pigletrun.dihgg.game.components.ui.Hud;
 
 import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
 import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
@@ -40,8 +41,14 @@ public class Pig extends Actor {
 
 	public void move(float transition) {
         if (!gamePaused) {
-            if (sprite.getY() >= 100 && sprite.getY() <= Gdx.graphics.getHeight() - 100 - sprite.getHeight())
-				sprite.translateY(transition);
+
+            if (sprite.getY() >= 0 && sprite.getY() <= Gdx.graphics.getHeight() - Hud.bgSize - sprite.getHeight())
+                sprite.translateY(transition);
+            else if (sprite.getY() < 0)
+                sprite.setY(0);
+            else
+                sprite.setY(Gdx.graphics.getHeight() - Hud.bgSize - sprite.getHeight());
+
 			bounds.setPosition(sprite.getX(), sprite.getY());
 		}
 	}

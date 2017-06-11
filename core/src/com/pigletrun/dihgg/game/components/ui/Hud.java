@@ -19,6 +19,7 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
 
 public class Hud {
+	public static float bgSize;
 	//variaveis
 	private int score;
 	private LabelStyle labelStyle;
@@ -34,6 +35,7 @@ public class Hud {
 
 		bg = new Image("ui/buttons/hudbg.png");
 		bg.setPosition(0, Gdx.graphics.getHeight() - bg.getHeight());
+		bgSize = bg.getHeight();
 
 		// Criar estilo das labels
 		labelStyle = new LabelStyle(); // estilo das labels
@@ -108,10 +110,5 @@ public class Hud {
 	public void update() {
 		score = GLOBAL.ranking.getScore(); // Atualizar valor de score
 		scoreLabel.setText("PONTOS: " + String.valueOf(score)); // Atualizar label
-
-		// se score for maior do que hiscore, remover hiscore
-		/*if ((score > hiscore) && hiscoreLabel.isVisible()) {
-			hiscoreLabel.setVisible(false);
-		}*/
 	}
 }
