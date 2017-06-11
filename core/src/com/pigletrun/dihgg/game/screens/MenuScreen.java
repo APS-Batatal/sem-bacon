@@ -12,6 +12,8 @@ import com.pigletrun.dihgg.game.core.BaseScreen;
 
 import java.util.ArrayList;
 
+import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
+
 public class MenuScreen extends BaseScreen {
 	// VARIÁVEIS
 	private Button playBtn, optionsBtn, tutorialBtn, rankBtn, creditsBtn, exitBtn; // Botões
@@ -66,7 +68,8 @@ public class MenuScreen extends BaseScreen {
 		playBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new GameScreen(game));
 				return true;
@@ -76,7 +79,8 @@ public class MenuScreen extends BaseScreen {
 		tutorialBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new TutorialScreen(game));
 				return true;
@@ -86,7 +90,8 @@ public class MenuScreen extends BaseScreen {
 		rankBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new RankingScreen(game));
 				return true;
@@ -96,7 +101,8 @@ public class MenuScreen extends BaseScreen {
 		creditsBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new CreditsScreen(game));
 				return true;
@@ -106,7 +112,8 @@ public class MenuScreen extends BaseScreen {
 		exitBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				//TODO: box de confirmação
 				Gdx.app.exit();
 				return true;

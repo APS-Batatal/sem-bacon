@@ -12,6 +12,8 @@ import com.pigletrun.dihgg.game.components.ui.Button;
 import com.pigletrun.dihgg.game.core.BaseScreen;
 import com.pigletrun.dihgg.game.core.GLOBAL;
 
+import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
+
 public class EndScreen extends BaseScreen {
 	private Button retryBtn, menuBtn, exitBtn;
 	private Image light, plate;
@@ -60,7 +62,8 @@ public class EndScreen extends BaseScreen {
 		retryBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new GameScreen(game));
 				return true;
@@ -69,7 +72,8 @@ public class EndScreen extends BaseScreen {
 		menuBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new MenuScreen(game));
 				return true;
@@ -78,7 +82,8 @@ public class EndScreen extends BaseScreen {
 		exitBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				// TODO: confirmar saída
 				Gdx.app.exit();
 				return true;

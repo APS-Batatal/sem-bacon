@@ -11,6 +11,8 @@ import com.pigletrun.dihgg.game.components.ui.Button;
 import com.pigletrun.dihgg.game.core.BaseScreen;
 import com.pigletrun.dihgg.game.core.GLOBAL;
 
+import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
+
 public class RankingScreen extends BaseScreen {
 
 	private Text text, hiscore;
@@ -39,7 +41,8 @@ public class RankingScreen extends BaseScreen {
 		backBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new MenuScreen(game));
 				return true;
@@ -49,7 +52,8 @@ public class RankingScreen extends BaseScreen {
 		clearHiscore.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				GLOBAL.ranking.clearHiscore();
 				dispose();
 				game.setScreen(new RankingScreen(game));

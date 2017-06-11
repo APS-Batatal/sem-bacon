@@ -10,6 +10,8 @@ import com.pigletrun.dihgg.game.components.Image;
 import com.pigletrun.dihgg.game.components.ui.Button;
 import com.pigletrun.dihgg.game.core.BaseScreen;
 
+import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
+
 class TutorialScreen extends BaseScreen {
 	private Button backBtn;
 	private Image image;
@@ -30,7 +32,8 @@ class TutorialScreen extends BaseScreen {
 		backBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new MenuScreen(game));
 				return true;

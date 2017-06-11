@@ -17,6 +17,7 @@ import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_SPACING;
 import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_WIDTH;
 import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
 import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
+import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
 
 public class Saw extends Actor {
 	private static final int FLUCTUATION = 360; // número para posicionamento randômico da serra
@@ -67,7 +68,8 @@ public class Saw extends Actor {
 			if (boundsSaw1.getX() <= bounds.getX() + (bounds.getWidth() / 2) && !GAME_OVER) {
 				playSound++;
 				if (playSound == 1)
-					sound.play();
+					if (musicPlaying)
+						sound.play();
 			} else playSound = 0;
 
 			// verifica se porco passou pela serra

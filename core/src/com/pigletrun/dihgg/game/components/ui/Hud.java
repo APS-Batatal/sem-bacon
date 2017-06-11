@@ -2,6 +2,7 @@ package com.pigletrun.dihgg.game.components.ui;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -28,11 +29,13 @@ public class Hud {
 	private Label scoreLabel, hiscoreLabel;
 	private Button pauseBtn, musicBtn, menuBtn;
 	private Image bg;
+	private Sound sound;
 
 	public Hud(final Stage stage, final Game game) {
 		//iniciar variáveis
 		score = GLOBAL.ranking.getScore();
 		hiscore = GLOBAL.ranking.getHiscore();
+		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		bg = new Image("ui/buttons/hudbg.png");
 		bg.setPosition(0, Gdx.graphics.getHeight() - bg.getHeight());
@@ -58,6 +61,8 @@ public class Hud {
 		menuBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+				if (musicPlaying)
+					sound.play();
 				game.dispose();
 				game.setScreen(new MenuScreen(game));
 				return false;
@@ -71,6 +76,8 @@ public class Hud {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				gamePaused = !gamePaused;
+				if (musicPlaying)
+					sound.play();
 				if (gamePaused)
 					pauseBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/unpause.png")));
 				else
@@ -88,6 +95,7 @@ public class Hud {
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
 				musicPlaying = !musicPlaying;
 				if (musicPlaying) {
+					sound.play();
 					musicBtn.getStyle().imageUp = new TextureRegionDrawable(new TextureRegion(new Texture("images/ui/buttons/music.png")));
 					GLOBAL.MUSIC.setVolume(.5f);
 				} else {

@@ -11,6 +11,8 @@ import com.pigletrun.dihgg.game.components.Text;
 import com.pigletrun.dihgg.game.components.ui.Button;
 import com.pigletrun.dihgg.game.core.BaseScreen;
 
+import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
+
 public class CreditsScreen extends BaseScreen {
 	private Button backBtn;
 	private Image logo;
@@ -40,7 +42,8 @@ public class CreditsScreen extends BaseScreen {
 		backBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-				sound.play();
+				if (musicPlaying)
+					sound.play();
 				dispose();
 				game.setScreen(new MenuScreen(game));
 				return false;
