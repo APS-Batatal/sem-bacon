@@ -38,7 +38,7 @@ public class Hud {
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		bg = new Image("ui/buttons/hudbg.png");
-		bg.setPosition(0, Gdx.graphics.getHeight() - bg.getHeight());
+		bg.setPosition(0, stage.getHeight() - bg.getHeight());
 		bgHeight = bg.getHeight();
 
 		// Criar estilo das labels
@@ -52,12 +52,12 @@ public class Hud {
 		scoreLabel.setFontScale(2f); // altera tamanho da fonte
         hiscoreLabel.setFontScale(2f);
         // TODO: alterar
-        scoreLabel.setPosition(10, Gdx.graphics.getHeight() - (scoreLabel.getHeight() * 2) - 10); // alterar posição
-        hiscoreLabel.setPosition(10, Gdx.graphics.getHeight() - (scoreLabel.getHeight() * 2) - (hiscoreLabel.getHeight() * 2) - 48); // alterar posição
+		scoreLabel.setPosition(10, stage.getHeight() - (scoreLabel.getHeight() * 2) - 10); // alterar posição
+		hiscoreLabel.setPosition(10, stage.getHeight() - (scoreLabel.getHeight() * 2) - (hiscoreLabel.getHeight() * 2) - 48); // alterar posição
 
 		//Cria botão Menu
 		menuBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/menu.png")));
-		menuBtn.setPosition(Gdx.graphics.getWidth() - menuBtn.getWidth() - 24, Gdx.graphics.getHeight() - menuBtn.getHeight() - 24);
+		menuBtn.setPosition(stage.getWidth() - menuBtn.getWidth() - 24, stage.getHeight() - menuBtn.getHeight() - 24);
 		menuBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -71,7 +71,7 @@ public class Hud {
 
 		//Cria botão pause;
 		pauseBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/pause.png")));
-		pauseBtn.setPosition(menuBtn.getX() - pauseBtn.getWidth() - 50, Gdx.graphics.getHeight() - pauseBtn.getHeight() - 24);
+		pauseBtn.setPosition(menuBtn.getX() - pauseBtn.getWidth() - 50, stage.getHeight() - pauseBtn.getHeight() - 24);
 		pauseBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
@@ -89,7 +89,7 @@ public class Hud {
 		// Cria botão musica
 		musicPlaying = settings.getMusic();
 		musicBtn = new Button(new Texture(Gdx.files.internal((musicPlaying) ? "images/ui/buttons/music.png" : "images/ui/buttons/mute.png")));
-		musicBtn.setPosition(pauseBtn.getX() - musicBtn.getWidth() - 50, Gdx.graphics.getHeight() - pauseBtn.getHeight() - 24);
+		musicBtn.setPosition(pauseBtn.getX() - musicBtn.getWidth() - 50, stage.getHeight() - pauseBtn.getHeight() - 24);
 		musicBtn.addListener(new InputListener() {
 			@Override
 			public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {

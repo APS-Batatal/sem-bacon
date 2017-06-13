@@ -21,10 +21,10 @@ class TutorialScreen extends BaseScreen {
 		super(game);
 
 		backBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/back.png")));
-		backBtn.setPosition(Gdx.graphics.getWidth() - backBtn.getWidth() - 24, 24);
+		backBtn.setPosition(stage.getWidth() - backBtn.getWidth() - 24, 24);
 
 		image = new Image("tutorial/tutorial.png");
-		image.setPosition(Gdx.graphics.getWidth() / 2 - image.getWidth() / 2, Gdx.graphics.getHeight() / 2 - image.getHeight() / 2);
+		image.setPosition(stage.getWidth() / 2 - image.getWidth() / 2, stage.getHeight() / 2 - image.getHeight() / 2);
 
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 

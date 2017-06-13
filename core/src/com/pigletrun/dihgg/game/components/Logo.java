@@ -5,14 +5,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class Logo extends Actor {
 	private Sprite sprite;
 
-	public Logo(String image) {
+	public Logo(String image, Stage stage) {
 		sprite = new Sprite(new Texture(Gdx.files.internal("images/logo/" + image)));
 		sprite.setScale(2f);
-		sprite.setPosition(Gdx.graphics.getWidth() / 2 - sprite.getWidth() / 2, Gdx.graphics.getHeight() / 2 - sprite.getHeight() / 2);
+		sprite.setPosition(stage.getWidth() / 2 - sprite.getWidth() / 2, stage.getHeight() / 2 - sprite.getHeight() / 2);
 		this.setBounds(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight());
 	}
 

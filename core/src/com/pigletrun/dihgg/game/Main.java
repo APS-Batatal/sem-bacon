@@ -21,6 +21,6 @@ class Main extends Game {
 		super.render();
 		if (!musicPlaying)
 			music.setVolume(0);
-		else music.setVolume(.5f);
+		else music.setVolume(1);
 	}
 }

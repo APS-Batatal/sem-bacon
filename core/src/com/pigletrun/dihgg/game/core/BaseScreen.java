@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
+
 public class BaseScreen implements Screen {
 	// Variáveis
 
@@ -15,10 +16,8 @@ public class BaseScreen implements Screen {
 	protected Stage stage; // a variável de 'stage'
     protected SpriteBatch batch; // o 'batch' de desenho
 
-
 	public BaseScreen(final Game game) {
 		this.game = game; // Atribuir a variavel de game
-
 		this.batch = new SpriteBatch(); // iniciar o 'spritebatch'
 		this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight())); // iniciar o 'stage'
 		Gdx.input.setInputProcessor(stage); // Settar o input processor ao stage
@@ -44,7 +43,7 @@ public class BaseScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-		stage.getViewport().update(width, height, false);
+		//stage.getViewport().update(width, height, false);
 	}
 
     @Override

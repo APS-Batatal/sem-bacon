@@ -25,14 +25,14 @@ public class RankingScreen extends BaseScreen {
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		text = new Text("O Recorde atual é de:");
-		text.setPosition((Gdx.graphics.getWidth() / 2 - text.getWidth() / 2), (Gdx.graphics.getHeight() / 2 + text.getHeight() * 3));
+		text.setPosition((stage.getWidth() / 2 - text.getWidth() / 2), (stage.getHeight() / 2 + text.getHeight() * 3));
 
 		hiscore = new Text(GLOBAL.ranking.getHiscore() + " Pontos");
 		hiscore.setScale(2f);
-		hiscore.setPosition(Gdx.graphics.getWidth() / 2 - hiscore.getWidth() / 2, text.getY() - 72);
+		hiscore.setPosition(stage.getWidth() / 2 - hiscore.getWidth() / 2, text.getY() - 72);
 
 		backBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/back.png")));
-		backBtn.setPosition(Gdx.graphics.getWidth() - backBtn.getWidth() - 24, 24);
+		backBtn.setPosition(stage.getWidth() - backBtn.getWidth() - 24, 24);
 
 		clearHiscore = new Button(new Texture(Gdx.files.internal("images/ui/buttons/clear.png")));
 		clearHiscore.setPosition(24, 24);

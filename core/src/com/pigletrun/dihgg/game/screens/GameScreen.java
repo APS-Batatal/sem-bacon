@@ -1,7 +1,6 @@
 package com.pigletrun.dihgg.game.screens;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.DragListener;
 import com.pigletrun.dihgg.game.components.characters.Pig;
@@ -28,7 +27,7 @@ class GameScreen extends BaseScreen {
 
 		GLOBAL.ranking.setScore(0); // zerar o score
 
-		pig = new Pig(); // criar novo ator do porco
+		pig = new Pig(stage); // criar novo ator do porco
 
 		stage.addListener(new DragListener() {
 			@Override
@@ -43,7 +42,7 @@ class GameScreen extends BaseScreen {
 		stage.addActor(pig); // Adicionar o porco ao cenário
 		//adiciona serras ao cenário
 		for (int i = 1; i <= SAW_COUNT; i++) {
-			stage.addActor(new Saw(i * (SAW_SPACING + SAW_WIDTH) + Gdx.graphics.getWidth()));
+			stage.addActor(new Saw(i * (SAW_SPACING + SAW_WIDTH) + stage.getWidth()));
 		}
 		hud = new Hud(stage, game);
 	}

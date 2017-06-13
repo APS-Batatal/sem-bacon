@@ -18,7 +18,7 @@ public class IntroScreen extends BaseScreen {
 	public IntroScreen(final Game game) {
 		super(game);
 
-		logo = new Logo(files[0]); // iniciar o logo 'com o primeiro logo'
+		logo = new Logo(files[0], stage); // iniciar o logo 'com o primeiro logo'
 		stage.addActor(logo); // Adicionar o ator 'logo' ao stage
 
 		// Criar sequencia de ações

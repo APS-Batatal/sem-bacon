@@ -26,7 +26,7 @@ public class CreditsScreen extends BaseScreen {
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		logo = new Image("logo/game.png");
-		logo.setPosition(Gdx.graphics.getWidth() / 2 - logo.getWidth() / 2, Gdx.graphics.getHeight() - logo.getHeight() - 48);
+		logo.setPosition(stage.getWidth() / 2 - logo.getWidth() / 2, stage.getHeight() - logo.getHeight() - 48);
 
 		String txt = "";
 		for (int i = 0; i < jobs.length; i++) {
@@ -37,7 +37,7 @@ public class CreditsScreen extends BaseScreen {
 		text.setPosition(24, logo.getY() - logo.getHeight() - 120);
 
 		backBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/back.png")));
-		backBtn.setPosition(Gdx.graphics.getWidth() - backBtn.getWidth() - 24, 24);
+		backBtn.setPosition(stage.getWidth() - backBtn.getWidth() - 24, 24);
 
 		backBtn.addListener(new InputListener() {
 			@Override

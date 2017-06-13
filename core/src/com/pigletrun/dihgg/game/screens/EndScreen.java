@@ -27,7 +27,7 @@ public class EndScreen extends BaseScreen {
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		retryBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/retry.png")));
-		btnY = (Gdx.graphics.getHeight() / 2 - retryBtn.getHeight() / 2 - 50);
+		btnY = (stage.getHeight() / 2 - retryBtn.getHeight() / 2 - 50);
 		retryBtn.setPosition(24, btnY);
 
 		menuBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/menu.png")));
@@ -38,14 +38,14 @@ public class EndScreen extends BaseScreen {
 
 		light = new Image("gameover/light.png");
 		light.setScale(2f);
-		light.setPosition(Gdx.graphics.getWidth() - light.getWidth(), Gdx.graphics.getHeight() - light.getHeight());
+		light.setPosition(stage.getWidth() - light.getWidth(), stage.getHeight() - light.getHeight());
 
 		plate = new Image("gameover/plate.png");
 		plate.setScale(2f);
-		plate.setPosition(Gdx.graphics.getWidth() - plate.getWidth() - 75, Gdx.graphics.getHeight() - (light.getHeight() + plate.getHeight() + 40));
+		plate.setPosition(stage.getWidth() - plate.getWidth() - 75, stage.getHeight() - (light.getHeight() + plate.getHeight() + 40));
 
 		text = new Text("VIROU BACON !!!", 50);
-		text.setPosition(24, Gdx.graphics.getHeight() - text.getHeight() - 80);
+		text.setPosition(24, stage.getHeight() - text.getHeight() - 80);
 
 		score = new Text(("Seus pontos: " + GLOBAL.ranking.getScore()), 22);
 		score.setPosition(text.getX(), text.getY() - 80);

@@ -30,7 +30,7 @@ public class MenuScreen extends BaseScreen {
 		// criar e posicionar logo
 		logo = new Image("logo/game.png");
 		logo.setScale(1.5f);
-		logo.setPosition(60, Gdx.graphics.getHeight() / 2 - logo.getHeight() / 2);
+		logo.setPosition(60, stage.getHeight() / 2 - logo.getHeight() / 2);
 		stage.addActor(logo);
 
 		// para cada nome de botão
@@ -54,7 +54,7 @@ public class MenuScreen extends BaseScreen {
 
 		//posicionar cada um dos botões
 
-		playBtn.setPosition(Gdx.graphics.getWidth() / 2 - playBtn.getWidth() / 2 + 100, Gdx.graphics.getHeight() / 2 - playBtn.getWidth() / 4);
+		playBtn.setPosition(stage.getWidth() / 2 - playBtn.getWidth() / 2 + 100, stage.getHeight() / 2 - playBtn.getWidth() / 4);
 		//optionsBtn.setPosition(playBtn.getX() + optionsBtn.getWidth() + 24, playBtn.getY());
 		tutorialBtn.setPosition(playBtn.getX(), playBtn.getY() - tutorialBtn.getHeight() - 24);
 		rankBtn.setPosition(tutorialBtn.getX() + rankBtn.getWidth() + 24, tutorialBtn.getY());

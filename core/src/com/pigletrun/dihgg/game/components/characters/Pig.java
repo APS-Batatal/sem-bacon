@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Timer;
 import com.pigletrun.dihgg.game.components.ui.Hud;
 
@@ -17,9 +18,11 @@ public class Pig extends Actor {
 	private TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
 	private Sprite sprite = new Sprite(atlas.findRegion("Pig1"));
 	private int frame = 1;
+	private Stage stage;
 
-	public Pig() {
-		sprite.setPosition(50, Gdx.graphics.getHeight() / 2 - sprite.getHeight() / 2);
+	public Pig(Stage stage) {
+		this.stage = stage;
+		sprite.setPosition(50, stage.getHeight() / 2 - sprite.getHeight() / 2 - 80);
 		bounds = new Rectangle(sprite.getX(), sprite.getY(), sprite.getWidth() - 20, sprite.getHeight() - 20);
 
 		Timer.schedule(new Timer.Task(){
@@ -42,12 +45,12 @@ public class Pig extends Actor {
 	public void move(float transition) {
         if (!gamePaused) {
 
-			if (sprite.getY() >= 0 && sprite.getY() <= Gdx.graphics.getHeight() - Hud.bgHeight - sprite.getHeight())
+			if (sprite.getY() >= 0 && sprite.getY() <= stage.getHeight() - Hud.bgHeight - sprite.getHeight())
 				sprite.translateY(transition);
             else if (sprite.getY() < 0)
                 sprite.setY(0);
             else
-				sprite.setY(Gdx.graphics.getHeight() - Hud.bgHeight - sprite.getHeight());
+				sprite.setY(stage.getHeight() - Hud.bgHeight - sprite.getHeight());
 
 			bounds.setPosition(sprite.getX(), sprite.getY());
 		}
