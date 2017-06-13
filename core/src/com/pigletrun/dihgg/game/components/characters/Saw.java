@@ -50,7 +50,7 @@ public class Saw extends Actor {
 		super.act(delta);
 		if (!gamePaused) {
 			if (GLOBAL.ranking.getScore() % 10 == 0 && GLOBAL.ranking.getScore() != 0 && !block) {
-				velocity += velocity * (delta * 10);
+				velocity += velocity * (delta);
 				block = true;
 			}
 			if (GLOBAL.ranking.getScore() % 20 == 0 && GLOBAL.ranking.getScore() != 0 && block) {

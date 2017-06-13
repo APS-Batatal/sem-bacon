@@ -20,7 +20,7 @@ public class BaseScreen implements Screen {
 		this.game = game; // Atribuir a variavel de game
 		this.batch = new SpriteBatch(); // iniciar o 'spritebatch'
 		//this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight())); // iniciar o 'stage'
-		this.stage = new Stage(new FitViewport(1280, 720)); // iniciar o 'stage
+		this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight())); // iniciar o 'stage
 		Gdx.input.setInputProcessor(stage); // Settar o input processor ao stage
 	}
 
