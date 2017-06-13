@@ -28,7 +28,7 @@ public class Saw extends Actor {
 	private Sprite saw2 = new Sprite(new Texture("images/Saw1.png"));
 	private Rectangle boundsSaw1, boundsSaw2;
 	private Random rand;
-	private Sound sound;
+	private Sound sound, sound2;
 	private int velocity = -5;
 	private int pigPassed, playSound;
 	private boolean block = false;
@@ -36,6 +36,7 @@ public class Saw extends Actor {
 	public Saw(float x) {
 		rand = new Random();
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/saw.wav"));
+		sound2 = Gdx.audio.newSound(Gdx.files.internal("sound/game-over.wav"));
 
 		saw1.setPosition(x, rand.nextInt(FLUCTUATION) + SAW_GAP + LOWEST_OPENING);
 		saw2.setPosition(x, saw1.getY() - SAW_GAP - saw2.getHeight());
@@ -69,6 +70,8 @@ public class Saw extends Actor {
 
 			// verifica colisão com o porco
 			if (collides(bounds)) {
+				if (musicPlaying)
+					sound2.play();
 				GAME_OVER = true;
 			}
 
