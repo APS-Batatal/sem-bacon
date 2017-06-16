@@ -10,9 +10,6 @@ import com.pigletrun.dihgg.game.core.BaseScreen;
 import com.pigletrun.dihgg.game.core.GLOBAL;
 
 import static com.pigletrun.dihgg.game.core.GLOBAL.GAME_OVER;
-import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_COUNT;
-import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_SPACING;
-import static com.pigletrun.dihgg.game.core.GLOBAL.SAW_WIDTH;
 import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 
 class GameScreen extends BaseScreen {
@@ -41,8 +38,8 @@ class GameScreen extends BaseScreen {
 
 		stage.addActor(pig); // Adicionar o porco ao cenário
 		//adiciona serras ao cenário
-		for (int i = 1; i <= SAW_COUNT; i++) {
-			stage.addActor(new Saw(i * (SAW_SPACING + SAW_WIDTH) + stage.getWidth()));
+		for (int i = 1; i <= Saw.SAW_COUNT; i++) {
+			stage.addActor(new Saw((i * Saw.SAW_SPACING) + stage.getWidth()));
 		}
 		hud = new Hud(stage, game);
 	}
