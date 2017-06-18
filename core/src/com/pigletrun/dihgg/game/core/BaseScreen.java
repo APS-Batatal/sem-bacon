@@ -22,6 +22,8 @@ public class BaseScreen implements Screen {
 		//this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight())); // iniciar o 'stage'
 		this.stage = new Stage(new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight())); // iniciar o 'stage
 		Gdx.input.setInputProcessor(stage); // Settar o input processor ao stage
+		System.out.println(Gdx.graphics.getWidth());
+		System.out.println(Gdx.graphics.getHeight());
 	}
 
 	@Override

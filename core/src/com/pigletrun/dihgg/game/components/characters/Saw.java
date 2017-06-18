@@ -28,6 +28,7 @@ public class Saw extends Actor {
 	private Sound sound, sound2;
 	private int pigPassed, playSound;
 	private float velocity = -3;
+	private boolean block = false;
 
 	public Saw(float x) {
 		rand = new Random();
@@ -40,20 +41,31 @@ public class Saw extends Actor {
 		saw1.setPosition(x, rand.nextInt(FLUCTUATION) + SAW_GAP + LOWEST_OPENING);
 		saw2.setPosition(x, saw1.getY() - SAW_GAP - saw2.getHeight());
 
-		boundsSaw1 = new Rectangle(saw1.getX(), saw1.getY(), saw1.getWidth() - 20, saw1.getHeight() - 20);
-		boundsSaw2 = new Rectangle(saw2.getX(), saw2.getY(), saw2.getWidth() - 20, saw2.getHeight() - 20);
+		boundsSaw1 = new Rectangle(saw1.getX() + 20, saw1.getY(), saw1.getWidth() - 40, saw1.getHeight() - 20);
+		boundsSaw2 = new Rectangle(saw2.getX() + 20, saw2.getY(), saw2.getWidth() - 40, saw2.getHeight() - 20);
+
+
 	}
 
 	@Override
 	public void act(float delta) {
 		super.act(delta);
 		if (!gamePaused) {
+			if (GLOBAL.ranking.getScore() % 10 == 0 && GLOBAL.ranking.getScore() != 0 && !block) {
+				GLOBAL.velocity += GLOBAL.velocity * (delta);
+				block = true;
+			}
+			if (GLOBAL.ranking.getScore() % 20 == 0 && GLOBAL.ranking.getScore() != 0 && block) {
+				block = false;
+			}
 			velocity -= 0.001;
 
 			// movimenta as serras no eixo x
 			saw1.translateX(velocity);
 			saw2.translateX(velocity);
 
+			saw1.translateX(GLOBAL.velocity);
+			saw2.translateX(GLOBAL.velocity);
 			boundsSaw1.setPosition(saw1.getX(), saw1.getY());
 			boundsSaw2.setPosition(saw2.getX(), saw2.getY());
 

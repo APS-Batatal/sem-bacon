@@ -9,4 +9,5 @@ public class GLOBAL {
 	public static Boolean GAME_OVER;
     public static Boolean gamePaused; // para pausar o jogo
 	public static Boolean musicPlaying = settings.getMusic();
+	public static int velocity = -5; // velocidade do jogo
 }
