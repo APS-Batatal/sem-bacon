@@ -21,6 +21,8 @@ public class BaseScreen implements Screen {
 		this.batch = new SpriteBatch(); // iniciar o 'spritebatch'
 		this.stage = new Stage(new StretchViewport(1280, 720)); // iniciar o 'stage
 		Gdx.input.setInputProcessor(stage); // Settar o input processor ao stage
+		System.out.println(Gdx.graphics.getWidth());
+		System.out.println(Gdx.graphics.getHeight());
 	}
 
 	@Override

@@ -16,6 +16,7 @@ class GameScreen extends BaseScreen {
 	// VARIÁVEIS
 	private Hud hud;
 	private Pig pig; // Porco
+	//private PowerUp clock;
 
 	GameScreen(final Game game) {
 		super(game); // chamar construtor pai
@@ -30,9 +31,9 @@ class GameScreen extends BaseScreen {
 			@Override
 			public void drag(InputEvent event, float x, float y, int pointer) {
 				if (getDeltaY() > 0) //Identifica direção do movimento na tela
-					pig.move(-5f); // pig.moveDown();
+					pig.move(-6f); // pig.moveDown();
 				else if (getDeltaY() < 0)
-					pig.move(5f); //  pig.moveUp();
+					pig.move(6f); //  pig.moveUp();
 			}
 		});
 
@@ -42,6 +43,8 @@ class GameScreen extends BaseScreen {
 			stage.addActor(new Saw((i * Saw.SAW_SPACING) + stage.getWidth()));
 		}
 		hud = new Hud(stage, game);
+		//clock = new PowerUp("clock");
+		//stage.addActor(clock);
 	}
 
 	@Override
