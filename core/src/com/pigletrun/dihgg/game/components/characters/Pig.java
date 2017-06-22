@@ -10,10 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Timer;
 import com.pigletrun.dihgg.game.components.ui.Hud;
 
-import static com.pigletrun.dihgg.game.core.GLOBAL.bounds;
 import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 
 public class Pig extends Actor {
+	public static Rectangle bounds; // pig bounds
 
 	private TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
 	private Sprite sprite = new Sprite(atlas.findRegion("Pig1"));
@@ -23,7 +23,7 @@ public class Pig extends Actor {
 	public Pig(Stage stage) {
 		this.stage = stage;
 		sprite.setPosition(50, stage.getHeight() / 2 - sprite.getHeight() / 2 - 80);
-		bounds = new Rectangle(sprite.getX(), sprite.getY(), sprite.getWidth() - 20, sprite.getHeight() - 20);
+		bounds = new Rectangle(sprite.getX(), sprite.getY(), sprite.getWidth(), sprite.getHeight() - 25);
 
 		Timer.schedule(new Timer.Task(){
 						   @Override
@@ -52,7 +52,7 @@ public class Pig extends Actor {
             else
 				sprite.setY(stage.getHeight() - Hud.bgHeight - sprite.getHeight());
 
-			bounds.setPosition(sprite.getX(), sprite.getY());
+			bounds.setPosition(sprite.getX() + 10, sprite.getY());
 		}
 	}
 }

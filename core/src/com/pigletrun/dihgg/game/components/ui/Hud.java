@@ -24,11 +24,10 @@ public class Hud {
 	public static float bgHeight;
 	//variaveis
 	private int score;
-	private LabelStyle labelStyle;
 	private int hiscore;
 	private Label scoreLabel, hiscoreLabel;
-	private Button pauseBtn, musicBtn, menuBtn;
-	private Image bg;
+	private Button pauseBtn;
+	private Button musicBtn;
 	private Sound sound;
 
 	public Hud(final Stage stage, final Game game) {
@@ -37,12 +36,12 @@ public class Hud {
 		hiscore = GLOBAL.ranking.getHiscore();
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
-		bg = new Image("ui/buttons/hudbg.png");
+		Image bg = new Image("ui/buttons/hudbg.png");
 		bg.setPosition(0, stage.getHeight() - bg.getHeight());
 		bgHeight = bg.getHeight();
 
 		// Criar estilo das labels
-		labelStyle = new LabelStyle(); // estilo das labels
+		LabelStyle labelStyle = new LabelStyle();
 		labelStyle.font = new Font("press-start.ttf").get(); // gerar font customizada
 		labelStyle.fontColor = Color.WHITE; // pegar cor
 
@@ -51,12 +50,11 @@ public class Hud {
 		hiscoreLabel = new Label("RECORDE: " + String.valueOf(hiscore), labelStyle); // Instanciar label de score
 		scoreLabel.setFontScale(2f); // altera tamanho da fonte
         hiscoreLabel.setFontScale(2f);
-        // TODO: alterar
 		scoreLabel.setPosition(10, stage.getHeight() - (scoreLabel.getHeight() * 2) - 10); // alterar posição
 		hiscoreLabel.setPosition(10, stage.getHeight() - (scoreLabel.getHeight() * 2) - (hiscoreLabel.getHeight() * 2) - 48); // alterar posição
 
 		//Cria botão Menu
-		menuBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/menu.png")));
+		Button menuBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/menu.png")));
 		menuBtn.setPosition(stage.getWidth() - menuBtn.getWidth() - 24, stage.getHeight() - menuBtn.getHeight() - 24);
 		menuBtn.addListener(new InputListener() {
 			@Override

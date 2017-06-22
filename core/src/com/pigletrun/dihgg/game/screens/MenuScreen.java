@@ -15,25 +15,21 @@ import java.util.ArrayList;
 import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
 
 public class MenuScreen extends BaseScreen {
-	// VARIÁVEIS
-	private Button playBtn, optionsBtn, tutorialBtn, rankBtn, creditsBtn, exitBtn; // Botões
-	private String[] files = {"play", "tutorial", "ranking", "credits", "exit"}; // lista de nomes dos botões
-	private ArrayList<Button> buttons = new ArrayList<Button>(); // array de botões
 	private Sound sound;
-
-	private Image logo;
 
 	public MenuScreen(final Game game) {
 		super(game);
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
 		// criar e posicionar logo
-		logo = new Image("logo/game.png");
+		Image logo = new Image("logo/game.png");
 		logo.setScale(1.5f);
 		logo.setPosition(60, stage.getHeight() / 2 - logo.getHeight() / 2);
 		stage.addActor(logo);
 
 		// para cada nome de botão
+		String[] files = {"play", "tutorial", "ranking", "credits", "exit"};
+		ArrayList<Button> buttons = new ArrayList<Button>();
 		for (int i = 0; i < files.length; i++) {
 			String file = files[i]; // pegar o nome atual
 
@@ -44,13 +40,12 @@ public class MenuScreen extends BaseScreen {
 
 
 		// Atribuir cada botão a sua respectiva variável
-		// TODO: Ver como melhorar isso
-		playBtn = buttons.get(0);
+		Button playBtn = buttons.get(0);
 		//optionsBtn = buttons.get(1);
-		tutorialBtn = buttons.get(1);
-		rankBtn = buttons.get(2);
-		creditsBtn = buttons.get(3);
-		exitBtn = buttons.get(4);
+		Button tutorialBtn = buttons.get(1);
+		Button rankBtn = buttons.get(2);
+		Button creditsBtn = buttons.get(3);
+		Button exitBtn = buttons.get(4);
 
 		//posicionar cada um dos botões
 

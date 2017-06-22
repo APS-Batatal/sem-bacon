@@ -20,7 +20,7 @@ public class Ranking {
 		return db.getInt("hiscore");
 	}
 
-	public void setHiscore(int value) {
+	private void setHiscore(int value) {
 		if (value > db.getInt("hiscore")) {
 			db.put("hiscore", value);
 		}

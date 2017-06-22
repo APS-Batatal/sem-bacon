@@ -13,30 +13,27 @@ import com.pigletrun.dihgg.game.core.BaseScreen;
 
 import static com.pigletrun.dihgg.game.core.GLOBAL.musicPlaying;
 
-public class CreditsScreen extends BaseScreen {
-	private Button backBtn;
-	private Image logo;
-	private Text text;
-	private String[] jobs = {"Programação", "Ilustração", "Música por", "Sons por", "Realização", "powered by"};
-	private String[] names = {"Diego Lopes / Silmara Raquel", "Diego Lopes", "FoolBoyMedia", "Juhani Junkala / krzysiunet", "Unicluster / UNIP", "LIBGDX"};
+class CreditsScreen extends BaseScreen {
 	private Sound sound;
 
-	public CreditsScreen(final Game game) {
+	CreditsScreen(final Game game) {
 		super(game);
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
-		logo = new Image("logo/game.png");
+		Image logo = new Image("logo/game.png");
 		logo.setPosition(stage.getWidth() / 2 - logo.getWidth() / 2, stage.getHeight() - logo.getHeight() - 48);
 
 		String txt = "";
+		String[] jobs = {"Programação", "Ilustração", "Música por", "Sons por", "Realização", "powered by"};
 		for (int i = 0; i < jobs.length; i++) {
+			String[] names = {"Diego Lopes / Silmara Raquel", "Diego Lopes", "FoolBoyMedia", "Juhani Junkala / krzysiunet", "Unicluster / UNIP", "LIBGDX"};
 			txt += jobs[i] + " : " + names[i] + "\n\n";
 		}
 
-		text = new Text(txt, 20);
+		Text text = new Text(txt, 20);
 		text.setPosition(24, logo.getY() - logo.getHeight() - 120);
 
-		backBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/back.png")));
+		Button backBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/back.png")));
 		backBtn.setPosition(stage.getWidth() - backBtn.getWidth() - 24, 24);
 
 		backBtn.addListener(new InputListener() {
