@@ -13,7 +13,7 @@ import com.pigletrun.dihgg.game.components.ui.Hud;
 import static com.pigletrun.dihgg.game.core.GLOBAL.gamePaused;
 
 public class Pig extends Actor {
-	public static Rectangle bounds; // pig bounds
+	static Rectangle bounds; // pig bounds
 
 	private TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("images/characters/pig/Pig.pack"));
 	private Sprite sprite = new Sprite(atlas.findRegion("Pig1"));
