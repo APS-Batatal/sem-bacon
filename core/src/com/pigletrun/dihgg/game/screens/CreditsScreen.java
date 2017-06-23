@@ -20,18 +20,26 @@ class CreditsScreen extends BaseScreen {
 		super(game);
 		sound = Gdx.audio.newSound(Gdx.files.internal("sound/button.wav"));
 
-		Image logo = new Image("logo/game.png");
+		Image logo = new Image("logo/unicluster.png");
 		logo.setPosition(stage.getWidth() / 2 - logo.getWidth() / 2, stage.getHeight() - logo.getHeight() - 48);
 
-		String txt = "";
-		String[] jobs = {"Programação", "Ilustração", "Música por", "Sons por", "Realização", "powered by"};
+		String txt = "Unicluster é um grupo de estudos e desenvolvimento";
+		txt += "\n";
+		txt += "em Android e Arduino formado por alunos e professores";
+		txt += "\n";
+		txt += "dos cursos de Ciência da computação e Sistemas de inormação";
+		txt += "\n";
+		txt += "da UNIP - Cidade Universitária";
+		txt += "\n\n";
+		String[] jobs = {"Programação", "Ilustração", "Música por", "Sons por", "Realização", "Coordenador", "powered by"};
 		for (int i = 0; i < jobs.length; i++) {
-			String[] names = {"Diego Lopes / Silmara Raquel", "Diego Lopes", "FoolBoyMedia", "Juhani Junkala / krzysiunet", "Unicluster / UNIP", "LIBGDX"};
+			String[] names = {"Diego Lopes / Silmara Raquel", "Diego Lopes", "FoolBoyMedia", "Juhani Junkala / krzysiunet", "Unicluster / UNIP", "Fábio Luís Pereira", "LIBGDX"};
 			txt += jobs[i] + " : " + names[i] + "\n\n";
 		}
 
 		Text text = new Text(txt, 20);
-		text.setPosition(24, logo.getY() - logo.getHeight() - 120);
+		text.setPosition(24, logo.getY() - logo.getHeight() - 300);
+		text.setWidth(Gdx.graphics.getWidth() - 24);
 
 		Button backBtn = new Button(new Texture(Gdx.files.internal("images/ui/buttons/back.png")));
 		backBtn.setPosition(stage.getWidth() - backBtn.getWidth() - 24, 24);
