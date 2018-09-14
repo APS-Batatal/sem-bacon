@@ -1,8 +1,8 @@
 
-pig.png
+Pig.png
 format: RGBA8888
 filter: Nearest,Nearest
-repeat: none
+repeat: nones
 Pig1
   rotate: false
   xy: 1, 1
